@@ -32,6 +32,8 @@ This game will guide the user / player through a dungeon, in which they will enc
 
 ## Features
 
+The game will make use of classes both for the player and the hero they choose, as well as the enemies faced during the game. This provides a good amount of replayability as the text adventure will not be linear and it will be difficult to have the same run in the game twice.
+
 
 
 ## Testing
