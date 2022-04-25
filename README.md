@@ -41,5 +41,14 @@ While writing the README document, I was unable to see a preview in Gitpod. This
 
 ## Deployment
 
+as of 25/04/22, due to an issue with Heroku and Github (a recent security attack), Heroku have removed removed the ability to automatically login to Github from their site. This means that the method described in the Love Sandwiches project no longer works. You currently cannot deploy apps from the Heroku dashboard, nor will those apps automatically update/redeploy in the future. A workaround was provided in the Code Institute Slack Announcements channel. The current method is as follows:
+
+* ADD STEPS BEFORE SUCH AS CREATING NEW HEROKU ACCOUNT AND IF ANY DEPENDENCIES OR INSTALLS MADE, USING THE COMMAND 'PIP3 FREEEZE > REQUIREMENTS.TXT
+* Run the command heroku login -i in the terminal in your Gitpod workspace and login when prompted. 
+* Run the command heroku create your_app_name_here to create a new app, replacing your_app_name_here with the name you want to give your  app. In this specific case the command heroku castle knightmare was used. 
+* This will create a new Heroku app and link it to your Gitpod terminal. You can then access the app via the Heroku dashboard and set up your config vars.
+* EXPLAIN ANY CONFIG VARS THAT WERE USED. IF NONE, DO NOT FORGET THE KEY: PORT / VALUE: 8000 CONFIG VAR
+* ANY OTHER STEPS?
+
 
 ## Credits
