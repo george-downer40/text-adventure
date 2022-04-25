@@ -52,3 +52,7 @@ as of 25/04/22, due to an issue with Heroku and Github (a recent security attack
 
 
 ## Credits
+
+INCLUDE ANY TUTORIALS USED IN THIS FORMAT
+
+* NAME OF TUTORIAL: [YouTube Video](LINK TO VIDEO)
