@@ -26,6 +26,8 @@ This game will guide the user / player through a dungeon, in which they will enc
 
 ## Technologies Used
 
+* Ecotrust-Canada Markdown (update with link and explanation)
+
 
 
 ## Features
