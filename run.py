@@ -72,6 +72,24 @@ def enter_castle():
 
 
 def main_hall():
+    print("You find yourself in a great hall with lots of flavour text.")
+    time.sleep(1)
+    print("There appears to be three exits from this place; a large door at the end of the hall,\n a door to your left, \n and a door to your right. ")
+    time.sleep(1)
+    player_select = input("Do you \n (1) go through the door in front of you? \n (2) take the door to your left? \n (3) take the door to your right?")
+    
+    if player_select == "1":
+        print("you chose 1")
+    elif player_select == "2":
+        print("you chose 2")
+    elif player_select == "3":
+        print("you chose 3")
+    else:
+        print ("unrecognised input. Please select from the options given")
+        player_select = input("Do you \n (1) go through the door in front of you? \n (2) take the door to your left? \n (3) take the door to your right?")
+    
+
+
  
 
 # def trap_fail():
