@@ -1,7 +1,7 @@
-import random
-import time
+# import random
+# import time
 
-#classes
+# classes
 
 class player:
     def __init__(self, Pname, Phealth, Pattack, Parmour, Pluck):
@@ -11,6 +11,13 @@ class player:
         self.armour = Parmour
         self.luck = Pluck
 
+player_list = [
+    player("lord", 100, 50, 40, 5),
+    player("Adventurer", 75, 40, 30, 7),
+    player("Vagabond", 50, 20, 20, 12),
+]
+
+
 class minion:
     def __init__(self, Mname, Mhealth, Mattack, Marmour):
         self.name = Mname
@@ -19,12 +26,6 @@ class minion:
         self.armour = Marmour
 
 
-player_list = [
-    player("lord", 100, 50, 40, 5),
-    player("Adventurer", 75, 40, 30, 7),
-    player("Vagabond", 50, 20, 20, 12),
-]
-
 minion_list = [
     minion("Goblin", 25, 20, 10),
     minion("Skeleton", 25, 20, 10),
@@ -32,7 +33,7 @@ minion_list = [
 ]
 
 
-#functions
+# functions
 
 # def minion_room():
 
@@ -40,19 +41,21 @@ minion_list = [
 # def death():
 
 
-def choose_player():
-    # player_select = ""
-    
+def choose_player(player):
+
     player_select = input("do you wish to play as\n (1) The Lord?\n (2) The Adventurer?\n (3) The Vagabond?\n")
     if player_select == "1":
-        print("You have chosen the Lord")
+        chosen_player = player_list[0]
+        print(f"You have chosen the {chosen_player.name}")
     elif player_select == "2":
-        print("You have selected the Adventurer")
+        chosen_player = player_list[1]
+        print(f"You have chosen the {chosen_player.name}")
     elif player_select == "3":
-        print("You have selected the Vagabond")
+        chosen_player = player_list[2]
+        print(f"You have chosen the {chosen_player.name}")
     else:
         print ("unrecognised input. Please select from the options given")
-        choose_player()
+        choose_player(player)
 
 
 
@@ -105,7 +108,7 @@ def choose_player():
 
 
 
-choose_player()
-choose_player()
-choose_player()
-choose_player()
+choose_player(player)
+choose_player(player)
+choose_player(player)
+choose_player(player)
