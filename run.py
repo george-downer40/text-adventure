@@ -1,4 +1,4 @@
-# import random
+import random
 import time
 
 # classes
@@ -29,19 +29,13 @@ class minion:
 
 
 minion_list = [
-    minion("Goblin", 25, 20, 10),
-    minion("Skeleton", 25, 20, 10),
-    minion("Kobold", 25, 20, 10),
+    minion("Goblin", 25, 25, 25),
+    minion("Skeleton", 50, 50, 50),
+    minion("Kobold", 75, 75, 75),
 ]
 
 
 # functions
-
-# def minion_room():
-
-
-# def death():
-
 
 def choose_player():
 
@@ -60,6 +54,8 @@ def choose_player():
         chosen_player = player_list[2]
         print(f"You have chosen the {chosen_player.name}")
     enter_castle()
+
+    return chosen_player
 
 
 def enter_castle():
@@ -91,6 +87,41 @@ def main_hall():
     elif player_select == "3":
         print("you chose 3")
     
+
+
+
+def minion_room(chosen_player):
+    random_minion = random.choice(minion_list)
+    chosen_minion = random_minion
+    print(f"as you enter the room, you see before you a {chosen_minion.name}!")
+    time.sleep(1)
+    print("How do you proceed?")
+    time.sleep(1)
+    player_select = input("Do you:\n (1) fight the creature?\n (2) try to sneak past it?\n")
+    while player_select != "1" and player_select != "2":
+        print("unrecognised input. Please try again and select from the options given")
+        player_select = input("Do you:\n (1) fight the creature?\n (2) try to sneak past it?\n")
+    
+    if player_select == "1":
+        print("you prepare yourself for battle!")
+        fight(minion, chosen_player)
+    elif player_select == "2":
+        print("you attempt to sneak past the creature")
+    
+    # return minion
+
+
+
+def fight(minion, chosen_player):
+    print(f"you, the {chosen_player.name} swing your weapon at the {minion.name}")
+
+
+
+# def death():
+
+
+
+
 
 
  
@@ -138,7 +169,4 @@ def main_hall():
 
 
 
-choose_player()
-choose_player()
-choose_player(player)
-choose_player(player)
+minion_room(chosen_player)
