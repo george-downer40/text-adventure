@@ -1,5 +1,5 @@
 # import random
-# import time
+import time
 
 # classes
 
@@ -56,13 +56,22 @@ def choose_player(player):
     else:
         print ("unrecognised input. Please select from the options given")
         choose_player(player)
+    enter_castle()
 
 
 
-# def enter_castle():
+def enter_castle():
+    time.sleep(1)
+    print("You enter the castle and meet Treguard")
+    time.sleep(1)
+    print("he gives you your quest...")
+    time.sleep(1)
+    print("With that, you accept your quest and step through the shimmering portal...")
+    time.sleep(1)
+    main_hall()
 
 
-# def main_hall():
+def main_hall():
  
 
 # def trap_fail():
