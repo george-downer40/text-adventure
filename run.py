@@ -4,8 +4,7 @@ import time
 #classes
 
 class player:
-
-    def __init__(self, Pname Phealth, Pattack, Parmour, Pluck):
+    def __init__(self, Pname, Phealth, Pattack, Parmour, Pluck):
         self.name = Pname
         self.health = Phealth
         self.attack = Pattack
@@ -13,7 +12,7 @@ class player:
         self.luck = Pluck
 
 class minion:
-    def __init__(self, Mname Mhealth, Mattack, Marmour):
+    def __init__(self, Mname, Mhealth, Mattack, Marmour):
         self.name = Mname
         self.health = Mhealth
         self.attack = Mattack
@@ -42,7 +41,7 @@ minion_list = [
 
 
 def choose_player():
-   # player_select = ""
+    # player_select = ""
     
     player_select = input("do you wish to play as\n (1) The Lord?\n (2) The Adventurer?\n (3) The Vagabond?\n")
     if player_select == "1":
