@@ -1,6 +1,21 @@
 import random
 import time
 
+#classes
+
+class player:
+    def __init__(self, Phealth, Pattack, Parmour, Pluck):
+        self.health = Phealth
+        self.attack = Pattack
+        self.armour = Parmour
+        self.luck = Pluck
+
+class minion:
+    def __init__(self, Mhealth, Mattack, Marmour):
+        self.health = Mhealth
+        self.attack = Mattack
+        self.armour = Marmour
+
 
 #functions
 
