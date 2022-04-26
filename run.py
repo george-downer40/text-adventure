@@ -3,6 +3,7 @@ import time
 
 # classes
 
+
 class player:
     def __init__(self, Pname, Phealth, Pattack, Parmour, Pluck):
         self.name = Pname
@@ -10,6 +11,7 @@ class player:
         self.attack = Pattack
         self.armour = Parmour
         self.luck = Pluck
+
 
 player_list = [
     player("lord", 100, 50, 40, 5),
@@ -41,10 +43,10 @@ minion_list = [
 # def death():
 
 
-def choose_player(player):
+def choose_player():
 
     player_select = input("do you wish to play as\n (1) The Lord?\n (2) The Adventurer?\n (3) The Vagabond?\n")
-    while player_select != "1" and player_select != "2" and player_select !="3":
+    while player_select != "1" and player_select != "2" and player_select != "3":
         print("unrecognised input. Please try again and select from the options given")
         player_select = input("do you wish to play as\n (1) The Lord?\n (2) The Adventurer?\n (3) The Vagabond?\n")
 
@@ -58,7 +60,6 @@ def choose_player(player):
         chosen_player = player_list[2]
         print(f"You have chosen the {chosen_player.name}")
     enter_castle()
-
 
 
 def enter_castle():
@@ -77,11 +78,11 @@ def main_hall():
     time.sleep(1)
     print("There appears to be three exits from this place;\n a large door at the end of the hall,\n a door to your left,\n and a door to your right. ")
     time.sleep(1)
-    player_select = input("Do you\n (1) go through the door in front of you?\n (2) take the door to your left? \n (3) take the door to your right?")
+    player_select = input("Do you\n (1) go through the door in front of you?\n (2) take the door to your left? \n (3) take the door to your right?\n")
 
-    while player_select != "1" and player_select != "2" and player_select !="3":
+    while player_select != "1" and player_select != "2" and player_select != "3":
         print("unrecognised input. Please try again and select from the options given")
-        player_select = input("Do you \n (1) go through the door in front of you? \n (2) take the door to your left? \n (3) take the door to your right?")
+        player_select = input("Do you \n (1) go through the door in front of you? \n (2) take the door to your left? \n (3) take the door to your right?\n")
     
     if player_select == "1":
         print("you chose 1")
@@ -137,7 +138,7 @@ def main_hall():
 
 
 
-choose_player(player)
-choose_player(player)
+choose_player()
+choose_player()
 choose_player(player)
 choose_player(player)
