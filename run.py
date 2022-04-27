@@ -85,11 +85,7 @@ class minion:
 
 
 
-minion_list = [
-    minion("Goblin", 25, 25, 25),
-    minion("Skeleton", 50, 50, 50),
-    minion("Kobold", 75, 75, 75),
-    ]
+
 
 
 # functions
@@ -103,7 +99,7 @@ def choose_player():
 
     if player_select == "1":
         playerName = "Lord"
-        playerHealth = 100
+        playerHealth = 110
         playerAttack = 50
         playerArmour = 40
         playerLuck = 5
@@ -117,7 +113,7 @@ def choose_player():
         print(f"You have chosen the {playerName}")
     elif player_select == "3":
         playerName = "Vagabond"
-        playerHealth = 100
+        playerHealth = 90
         playerAttack = 50
         playerArmour = 40
         playerLuck = 5
@@ -158,12 +154,25 @@ def main_hall():
         print("you chose 3")
     
 
+def generate_minion():
+    minion_name_list = [
+        "Goblin",
+        "Skeleton",
+        "Kobold",]
+    minionName = random.choice(minion_name_list)
+    minionHealth = random.randint(20, 40)
+    minionAttack = random.randint(20, 40)
+    minionArmour = random.randint(10, 20)
 
+    print(minionName)
+    print(minionHealth)
+    print(minionAttack)
+    print(minionArmour)
 
-def minion_room():
-    random_minion = random.choice(minion_list)
-    chosen_minion = random_minion
-    print(f"as you enter the room, you see before you a {chosen_minion.name}!")
+    return minion(minionName, minionHealth, minionAttack, minionArmour)
+
+def minion_room(generate_minion):
+    print(f"as you enter the room, you see before you a {name}!")
     time.sleep(1)
     print("How do you proceed?")
     time.sleep(1)
@@ -180,7 +189,7 @@ def minion_room():
     
     return chosen_minion
 
-
+"""
 
 def fight(chosen_minion):
     print(f"you swing your weapon at the {chosen.minion.name}")
@@ -190,8 +199,14 @@ def fight(chosen_minion):
 # def death():
 
 
-
-
+def generate_minion():
+    minion_list = [
+    goblin = minion("Goblin", 25, 25, 25),
+    skeleton = minion("Skeleton", 50, 50, 50),
+    kobold = minion("Kobold", 75, 75, 75),
+    ]
+    random_minion = random.choice(minion_list)
+    print(vars(random_minion))
 
 
  
@@ -237,6 +252,13 @@ def fight(chosen_minion):
 
 # def play_again():
 
+"""
 
 
-choose_player()
+generate_minion()
+generate_minion()
+generate_minion()
+generate_minion()
+generate_minion()
+generate_minion()
+minion_room(minion)
