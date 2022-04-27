@@ -97,8 +97,25 @@ def bomb_trap():
         if int(chance) > PLAYER_DATA["luck"]:
             print("You were caught in the blast")
             vitality(-3)
+            print("Your vitality has been reduced to " + str(PLAYER_DATA["vitality"]))
+            time.sleep(1)
+            print("You hear Treguard's voice inside the helm")
+            time.sleep(0.5)
+            print("'Careful adventurer, death is a very real possibility'")
+            time.sleep(1)
+            print("Your body aches, you can't take too much damage")
+            print("or you will surely perish")
+            time.sleep(1)
+            print("You make your way to the door at the end of the workshop")
+            print("and through the door")
+            cavern_fight()
         else:
-            print("You managed to reach the door before it blew")
+            print("You managed to reach the door before it blew!")
+            time.sleep(1)
+            print("Luck must be with you today")
+            time.sleep(1)
+            print("You step through the door")
+            cavern_fight()
 
     elif p_select == "2":
         print("you throw the table onto its side and hope for the best")
@@ -119,7 +136,30 @@ def bomb_trap():
         print("Thankfully, the table sheltered you from the blast.")
         time.sleep(1)
         print("Although dazed, you make your way to the door")
-        print("at the end of the room")
+        print("at the end of the workshop and step through")
+        cavern_fight()
+
+
+def hall_fight_1():
+    print("flavour text of room")
+    time.sleep(1)
+    print("Blocking your way is a menacing goblin")
+    time.sleep(1)
+    print("You have no choice but to fight it")
+    time.sleep(1)
+    print("You swing your sword at the goblin")
+    chance = random.randint(8, 12)
+    if int(chance) > PLAYER_DATA["luck"]:
+        print("You strike down the foul beast")
+        print("but not before it hit you first")
+        vitality(-3)
+        print("Your vitality has been reduced to " + str(PLAYER_DATA["vitality"]))
+        print("You make your way to the next room")
+        hall_fight_2()
+    else:
+        print("you are unscathed")
+        print("You make your way to the next room")
+
 
 
 # def curiosity_trap():
@@ -132,14 +172,13 @@ def bomb_trap():
 
 # def ceiling_trap():
 
-# def hall_fight_1():
-
 # def hall_fight_2():
 
 # def mighty_sword():
 
-bomb_trap()
-bomb_trap()
-bomb_trap()
-bomb_trap()
-bomb_trap()
+
+hall_fight_1()
+hall_fight_1()
+hall_fight_1()
+hall_fight_1()
+hall_fight_1()
