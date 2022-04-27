@@ -45,14 +45,6 @@ class player:
         self.luck = new_luck
 
 
-
-player_list = [
-    player("lord", 100, 50, 40, 5),
-    player("Adventurer", 75, 40, 30, 7),
-    player("Vagabond", 50, 20, 20, 12),
-]
-
-
 class minion:
     def __init__(self, Mname, Mhealth, Mattack, Marmour):
         self.name = Mname
