@@ -135,27 +135,96 @@ def generate_minion():
 
 
 def minion_attack(hitChance, attackValue, name, defence):
-    print(name, "is winding up for an attack...")
+    print(name, "swings at you...")
     hit = random.randint(0,10)
     if hitChance >= hit:
-        print("it hits the hero!!!")
+        print("and strikes!")
         loss = attackValue - defence
-        print("You stagger losing...", loss, "health")
+        print(f"You stagger losing {loss} health")
         return math.ceil(loss)
     else:
-        print("The enemy misses!")
+        print("They miss!")
         return 0
     
-def hitChance(luck):
+def hitChance(playerLuck):
     hit = random.randint(0,4)
     if luck < hit:
         print("MISS!")
         return False
+    else:
+        print("You hit!")
+        return True
+
+def isDead(health):
+    if health < 1:
+        return True
+    else:
+        return False
 
 
+def gameOver(enemyDead):
+    if enemyDead == True:
+        print("you slew the foul minion")
+    else:
+        print("You have been slain!")
+        exit()
 
 
+def battle(genEnemy, genCharacter):
+    print("You fight the", genEnemy.getName(), "are you ready?")
+    print("The stats are")
+    print(vars(genEnemy))
+    print("You attack the enemy")
 
+    battle = True
+
+    print("(1) attack\n (2) attack\n (3) attack\n")
+    choice = input()
+
+    while choice != "1" and choice != "2" and choice != "3":
+        print("input wrong. Try again")
+        print("(1) attack\n (2) attack\n (3) attack\n")
+        choice = input()
+    
+    if choice == "1":
+        damage = genCharacter.get_attack()
+    elif choice == "2":
+        damage = genCharacter.get_attack()
+    elif choice == "3":
+        damage = genCharacter.get_attack()
+    
+    print("swing!")
+    hit = hitChance(genCharacter.get_Luck())
+
+    if hit == True:
+        genEnemy.set_health(genEnemy.get_health() - damage)
+        print("You hit!")
+        print("Their health is now", genEnemy.get_health())
+    
+    else:
+        print("You missed")
+    
+    enemyDead = isDead(genEnemy.get_health())
+
+    if enemyDead == False:
+        genCharacter.set_health(genCharacter.get_health() - enemyAttack(genEnemy.get_attack(), genEnemy.get_name(), genCharacter.get_armour()))
+
+        characterDead = isDead(genCharacter.get_health())
+        
+        if characterDead == True:
+            battle = False
+            return False
+        
+        else:
+            print("Your health is", genCharacter.get_health())
+    
+    else battle == False
+    print("You defeated it")
+
+    return True
+    
+
+    
 
 
 
@@ -289,7 +358,13 @@ def generate_minion():
 
 """
 
-en1 = generate_minion()
+genCharacter = player("Test", 100, 20, 20, 6)
 
-print(vars(en1))
+whoDied = battle(generate_minion(), genCharacter)
+gameOver(WhoDied)
 
+whoDied = battle(generate_minion(), genCharacter)
+gameOver(WhoDied)
+
+whoDied = battle(generate_minion(), genCharacter)
+gameOver(WhoDied)
