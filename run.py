@@ -2,6 +2,7 @@ import random
 import time
 import math
 
+
 # classes
 
 
@@ -119,9 +120,8 @@ def choose_player():
         playerArmour = 40
         playerLuck = 5
         print(f"You have chosen the {playerName}")
-    enter_castle()
 
-    return (playerName, playerAttack, playerArmour, playerLuck)
+    return (playerName, playerHealth, playerAttack, playerArmour, playerLuck)
 
 
 def generate_minion():
@@ -131,9 +131,9 @@ def generate_minion():
         "Kobold",]
     name = random.choice(minion_name_list)
     health = random.randint(20, 40)
-    attack = random.randint(20, 40)
+    attack = random.randint(75, 80)
     armour = random.randint(10, 20)
-    chance = random.randint(5, 15)
+    chance = random.randint(20, 40)
 
     print(name)
     print(health)
@@ -279,7 +279,7 @@ def main_hall():
     
     if player_select == "1":
         print("you chose 1")
-        minion_room()
+        battle(generate_minion(), genCharacter)
     elif player_select == "2":
         print("you chose 2")
     elif player_select == "3":
@@ -370,7 +370,7 @@ def generate_minion():
 # def play_again():
 
 """
-
+"""
 genCharacter = Player("Test", 100, 20, 20, 6)
 
 whoDied = battle(generate_minion(), genCharacter)
@@ -381,3 +381,17 @@ gameOver(whoDied)
 
 whoDied = battle(generate_minion(), genCharacter)
 gameOver(whoDied)
+"""
+
+def main():
+    classData = choose_player()
+    global genCharacter
+    genCharacter = Player(classData[0], classData[1], classData[2], classData[3], classData[4])
+    print(vars(genCharacter))
+    characterDead = battle(generate_minion(), genCharacter)
+    gameOver(characterDead)
+    enter_castle()
+
+
+main()
+
