@@ -29,28 +29,29 @@ class Player:
         return self.luck
         
 
-    def set_name(self):
+    def set_name(self, new_name):
         self.name = new_name
         
-    def set_health(self):
+    def set_health(self, new_health):
         self.health = new_health
         
-    def set_attack(self):
+    def set_attack(self, new_attack):
         self.attack = new_attack
         
-    def set_armour(self):
+    def set_armour(self, new_armour):
         self.armour = new_armour
         
-    def set_luck(self):
+    def set_luck(self, new_luck):
         self.luck = new_luck
 
 
 class Minion:
-    def __init__(self, m_name, m_health, m_attack, m_armour):
+    def __init__(self, m_name, m_health, m_attack, m_armour, m_chance):
         self.name = m_name
         self.health = m_health
         self.attack = m_attack
         self.armour = m_armour
+        self.chance = m_chance
 
 
     def get_name(self):
@@ -64,6 +65,9 @@ class Minion:
 
     def get_armour(self):
         return self.armour
+    
+    def get_chance(self):
+        return self.chance
 
         
     def set_health(self, new_health):
@@ -74,6 +78,9 @@ class Minion:
         
     def set_armour(self, new_armour):
         self.armour = new_armour
+    
+    def set_chance(self, new_chance):
+        self.chance = new_chance
 
 
 
@@ -126,13 +133,14 @@ def generate_minion():
     health = random.randint(20, 40)
     attack = random.randint(20, 40)
     armour = random.randint(10, 20)
+    chance = random.randint(5, 15)
 
     print(name)
     print(health)
     print(attack)
     print(armour)
 
-    return minion(name, health, attack, armour)
+    return Minion(name, health, attack, armour, chance)
 
 
 def minion_attack(hitChance, attackValue, name, defence):
@@ -149,7 +157,7 @@ def minion_attack(hitChance, attackValue, name, defence):
 
 
 def hitChance(luck):
-    hit = random.randint(0,4)
+    hit = random.randint(1, 5)
     if luck < hit:
         print("MISS!")
         return False
@@ -211,7 +219,7 @@ def battle(genEnemy, genCharacter):
         enemyDead = isDead(genEnemy.get_health())
 
         if not enemyDead:
-            genCharacter.set_health(genCharacter.get_health() - minion_attack(genEnemy.get_attack(), genEnemy.get_name(), genCharacter.get_armour()))
+            genCharacter.set_health(genCharacter.get_health() - minion_attack(genEnemy.get_chance(), genEnemy.get_attack(), genEnemy.get_name(), genCharacter.get_armour()))
 
             characterDead = isDead(genCharacter.get_health())
         
@@ -363,13 +371,13 @@ def generate_minion():
 
 """
 
-genCharacter = player("Test", 100, 20, 20, 6)
+genCharacter = Player("Test", 100, 20, 20, 6)
 
 whoDied = battle(generate_minion(), genCharacter)
-gameOver(WhoDied)
+gameOver(whoDied)
 
 whoDied = battle(generate_minion(), genCharacter)
-gameOver(WhoDied)
+gameOver(whoDied)
 
 whoDied = battle(generate_minion(), genCharacter)
-gameOver(WhoDied)
+gameOver(whoDied)
