@@ -32,6 +32,35 @@ def main_hall():
         bomb_trap()
 
 def bomb_trap():
+    time.sleep(1)
+    print("You find yourself in a what seems to be a workshop,")
+    print("with beaten copper panels lining the wall.")
+    time.sleep(1)
+    print("There are crates of nuts and bolts strewn across the floor")
+    print("and a large wooden table a few paces in front of you")
+    time.sleep(1)
+    print("It looks like there's a door on the other side of the workshop")
+    time.sleep(1)
+    print("A loud hissing noise emanates from the middle of the workshop...")
+    time.sleep(1)
+    print("It's a large bomb! It's fuse is slowly burning down.")
+    time.sleep(1)
+    print("You don't have much time to act.")
+    time.sleep(1)
+    print("Do you...")
+    player_select = input("(1) Run for the door\n (2) Take shelter using the table?")
+
+    while player_select != "1" and player_select != "2":
+        print("unrecognised input. Please try again and select from the options given")
+        player_select = input("(1) Run for the door\n (2) Take shelter using the table?")
+    
+    if player_select == "1":
+        print("you sprint for the door")
+        
+    elif player_select == "2":
+        print("you throw the table onto its side and hope for the best")
+        
+
 
 def curiosity_trap():
 
