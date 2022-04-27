@@ -12,36 +12,36 @@ class player:
         self.armour = Parmour
         self.luck = Pluck
 
-        def get_name(self):
-            return self.name
+    def get_name(self):
+        return self.name
 
-        def get_health(self):
-            return self.health
+    def get_health(self):
+        return self.health
 
-        def get_attack(self):
-            return self.attack
+    def get_attack(self):
+        return self.attack
 
-        def get_armour(self):
-            return self.armour
+    def get_armour(self):
+        return self.armour
 
-        def get_luck(self):
-            return self.luck
+    def get_luck(self):
+        return self.luck
         
 
-        def set_name(self):
-            self.name = new_name
+    def set_name(self):
+        self.name = new_name
         
-        def set_health(self):
-            self.health = new_health
+    def set_health(self):
+        self.health = new_health
         
-        def set_attack(self):
-            self.attack = new_attack
+    def set_attack(self):
+        self.attack = new_attack
         
-        def set_armour(self):
-            self.armour = new_armour
+    def set_armour(self):
+        self.armour = new_armour
         
-        def set_luck(self):
-            self.luck = new_luck
+    def set_luck(self):
+        self.luck = new_luck
 
 
 
@@ -60,27 +60,27 @@ class minion:
         self.armour = Marmour
 
 
-        def get_name(self):
-            return self.name
+    def get_name(self):
+        return self.name
         
-        def get_health(self):
-            return self.health
+    def get_health(self):
+        return self.health
 
-        def get_attack(self):
-            return self.attack
+    def get_attack(self):
+        return self.attack
 
-        def get_armour(self):
-            return self.armour
+    def get_armour(self):
+        return self.armour
 
         
-        def set_health(self):
-            self.health = new_health
+    def set_health(self):
+        self.health = new_health
         
-        def set_attack(self):
-            self.attack = new_attack
+    def set_attack(self):
+        self.attack = new_attack
         
-        def set_armour(self):
-            self.armour = new_armour
+    def set_armour(self):
+        self.armour = new_armour
 
 
 
@@ -102,17 +102,29 @@ def choose_player():
         player_select = input("do you wish to play as\n (1) The Lord?\n (2) The Adventurer?\n (3) The Vagabond?\n")
 
     if player_select == "1":
-        chosen_player = player_list[0]
-        print(f"You have chosen the {chosen_player.name}")
+        playerName = "Lord"
+        playerHealth = 100
+        playerAttack = 50
+        playerArmour = 40
+        playerLuck = 5
+        print(f"You have chosen the {playerName}")
     elif player_select == "2":
-        chosen_player = player_list[1]
-        print(f"You have chosen the {chosen_player.name}")
+        playerName = "Adventurer"
+        playerHealth = 100
+        playerAttack = 50
+        playerArmour = 40
+        playerLuck = 5
+        print(f"You have chosen the {playerName}")
     elif player_select == "3":
-        chosen_player = player_list[2]
-        print(f"You have chosen the {chosen_player.name}")
+        playerName = "Vagabond"
+        playerHealth = 100
+        playerAttack = 50
+        playerArmour = 40
+        playerLuck = 5
+        print(f"You have chosen the {playerName}")
     enter_castle()
 
-    return chosen_player
+    return (playerName, playerAttack, playerArmour, playerLuck)
 
 
 def enter_castle():
@@ -139,6 +151,7 @@ def main_hall():
     
     if player_select == "1":
         print("you chose 1")
+        minion_room()
     elif player_select == "2":
         print("you chose 2")
     elif player_select == "3":
@@ -147,7 +160,7 @@ def main_hall():
 
 
 
-def minion_room(chosen_player):
+def minion_room():
     random_minion = random.choice(minion_list)
     chosen_minion = random_minion
     print(f"as you enter the room, you see before you a {chosen_minion.name}!")
@@ -161,16 +174,16 @@ def minion_room(chosen_player):
     
     if player_select == "1":
         print("you prepare yourself for battle!")
-        fight(minion, chosen_player)
+        fight(chosen_minion)
     elif player_select == "2":
         print("you attempt to sneak past the creature")
     
-    # return minion
+    return chosen_minion
 
 
 
-def fight(minion, chosen_player):
-    print(f"you, the {chosen_player.name} swing your weapon at the {minion.name}")
+def fight(chosen_minion):
+    print(f"you swing your weapon at the {chosen.minion.name}")
 
 
 
@@ -226,4 +239,4 @@ def fight(minion, chosen_player):
 
 
 
-minion_room(chosen_player)
+choose_player()
