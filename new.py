@@ -1,5 +1,10 @@
 import time
 
+PLAYER_DATA = {
+    "vitality": 20,
+    "luck": 10
+}
+
 def enter_castle():
     time.sleep(1)
     print("You enter the castle and meet Treguard")
