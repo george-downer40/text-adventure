@@ -1,5 +1,6 @@
 import random
 import time
+import math
 
 # classes
 
@@ -123,6 +124,63 @@ def choose_player():
     return (playerName, playerAttack, playerArmour, playerLuck)
 
 
+def generate_minion():
+    minion_name_list = [
+        "Goblin",
+        "Skeleton",
+        "Kobold",]
+    name = random.choice(minion_name_list)
+    health = random.randint(20, 40)
+    attack = random.randint(20, 40)
+    armour = random.randint(10, 20)
+
+    print(name)
+    print(health)
+    print(attack)
+    print(armour)
+
+    return minion(name, health, attack, armour)
+
+
+def minion_attack(hitChance, attackValue, name, defence):
+    print(name, "is winding up for an attack...")
+    hit = random.randint(0,10)
+    if hitChance >= hit:
+        print("it hits the hero!!!")
+        loss = attackValue - defence
+        print("You stagger losing...", loss, "health")
+        return math.ceil(loss)
+    else:
+        print("The enemy misses!")
+        return 0
+    
+def hitChance(luck):
+    hit = random.randint(0,4)
+    if luck < hit:
+        print("MISS!")
+        return False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def enter_castle():
     time.sleep(1)
     print("You enter the castle and meet Treguard")
@@ -154,22 +212,7 @@ def main_hall():
         print("you chose 3")
     
 
-def generate_minion():
-    minion_name_list = [
-        "Goblin",
-        "Skeleton",
-        "Kobold",]
-    minionName = random.choice(minion_name_list)
-    minionHealth = random.randint(20, 40)
-    minionAttack = random.randint(20, 40)
-    minionArmour = random.randint(10, 20)
 
-    print(minionName)
-    print(minionHealth)
-    print(minionAttack)
-    print(minionArmour)
-
-    return minion(minionName, minionHealth, minionAttack, minionArmour)
 
 def minion_room(generate_minion):
     print(f"as you enter the room, you see before you a {name}!")
@@ -254,11 +297,7 @@ def generate_minion():
 
 """
 
+en1 = generate_minion()
 
-generate_minion()
-generate_minion()
-generate_minion()
-generate_minion()
-generate_minion()
-generate_minion()
-minion_room(minion)
+print(vars(en1))
+
