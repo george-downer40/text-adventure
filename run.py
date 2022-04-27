@@ -54,7 +54,6 @@ class Minion:
         self.armour = m_armour
         self.chance = m_chance
 
-
     def get_name(self):
         return self.name
         
@@ -69,7 +68,10 @@ class Minion:
     
     def get_chance(self):
         return self.chance
+    
 
+    def set_name(self, new_name):
+        self.name = new_name
         
     def set_health(self, new_health):
         self.health = new_health
@@ -234,7 +236,7 @@ def battle(genEnemy, genCharacter):
             battle = False
             print("You defeated it")
 
-            return True
+            return True,
     
 
     
@@ -279,7 +281,7 @@ def main_hall():
     
     if player_select == "1":
         print("you chose 1")
-        battle(generate_minion(), genCharacter)
+        minion_room()
     elif player_select == "2":
         print("you chose 2")
     elif player_select == "3":
@@ -288,8 +290,8 @@ def main_hall():
 
 
 
-def minion_room(generate_minion):
-    print(f"as you enter the room, you see before you a {name}!")
+def minion_room():
+    print("as you enter the room, you see before you a foul creature!")
     time.sleep(1)
     print("How do you proceed?")
     time.sleep(1)
@@ -300,7 +302,7 @@ def minion_room(generate_minion):
     
     if player_select == "1":
         print("you prepare yourself for battle!")
-        fight(chosen_minion)
+        battle(genEnemy, genCharacter)
     elif player_select == "2":
         print("you attempt to sneak past the creature")
     
@@ -387,10 +389,15 @@ def main():
     classData = choose_player()
     global genCharacter
     genCharacter = Player(classData[0], classData[1], classData[2], classData[3], classData[4])
+
+    minion_data = generate_minion()
+    global genEnemy
+    genEnemy = Minion(minion_data[0], minion_data[1], minion_data[2], minion_data[3], minion_data[4])
+    enter_castle()
     print(vars(genCharacter))
     characterDead = battle(generate_minion(), genCharacter)
     gameOver(characterDead)
-    enter_castle()
+    
 
 
 main()
