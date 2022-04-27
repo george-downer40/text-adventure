@@ -66,13 +66,13 @@ class minion:
         return self.armour
 
         
-    def set_health(self):
+    def set_health(self, new_health):
         self.health = new_health
         
-    def set_attack(self):
+    def set_attack(self, new_attack):
         self.attack = new_attack
         
-    def set_armour(self):
+    def set_armour(self, new_armour):
         self.armour = new_armour
 
 
@@ -146,7 +146,7 @@ def minion_attack(hitChance, attackValue, name, defence):
         print("They miss!")
         return 0
     
-def hitChance(playerLuck):
+def hitChance(luck):
     hit = random.randint(0,4)
     if luck < hit:
         print("MISS!")
@@ -171,57 +171,59 @@ def gameOver(enemyDead):
 
 
 def battle(genEnemy, genCharacter):
-    print("You fight the", genEnemy.getName(), "are you ready?")
+    print("You fight the", genEnemy.get_name(), "are you ready?")
     print("The stats are")
     print(vars(genEnemy))
     print("You attack the enemy")
 
     battle = True
 
-    print("(1) attack\n (2) attack\n (3) attack\n")
-    choice = input()
-
-    while choice != "1" and choice != "2" and choice != "3":
-        print("input wrong. Try again")
+    while battle == True:
         print("(1) attack\n (2) attack\n (3) attack\n")
         choice = input()
-    
-    if choice == "1":
-        damage = genCharacter.get_attack()
-    elif choice == "2":
-        damage = genCharacter.get_attack()
-    elif choice == "3":
-        damage = genCharacter.get_attack()
-    
-    print("swing!")
-    hit = hitChance(genCharacter.get_Luck())
 
-    if hit == True:
-        genEnemy.set_health(genEnemy.get_health() - damage)
-        print("You hit!")
-        print("Their health is now", genEnemy.get_health())
+        while choice != "1" and choice != "2" and choice != "3":
+            print("input wrong. Try again")
+            print("(1) attack\n (2) attack\n (3) attack\n")
+            choice = input()
     
-    else:
-        print("You missed")
+        if choice == "1":
+            damage = genCharacter.get_attack()
+        elif choice == "2":
+            damage = genCharacter.get_attack()
+        elif choice == "3":
+            damage = genCharacter.get_attack()
     
-    enemyDead = isDead(genEnemy.get_health())
+        print("swing!")
+        hit = hitChance(genCharacter.get_luck())
 
-    if enemyDead == False:
-        genCharacter.set_health(genCharacter.get_health() - enemyAttack(genEnemy.get_attack(), genEnemy.get_name(), genCharacter.get_armour()))
-
-        characterDead = isDead(genCharacter.get_health())
-        
-        if characterDead == True:
-            battle = False
-            return False
-        
+        if hit == True:
+            genEnemy.set_health(genEnemy.get_health() - damage)
+            print("You hit!")
+            print("Their health is now", genEnemy.get_health())
+    
         else:
-            print("Your health is", genCharacter.get_health())
+            print("You missed")
     
-    else battle == False
-    print("You defeated it")
+        enemyDead = isDead(genEnemy.get_health())
 
-    return True
+        if enemyDead == False:
+            genCharacter.set_health(genCharacter.get_health() - minion_attack(genEnemy.get_attack(), genEnemy.get_name(), genCharacter.get_armour()))
+
+            characterDead = isDead(genCharacter.get_health())
+        
+            if characterDead == True:
+                battle = False
+                return False
+        
+            else:
+                print("Your health is", genCharacter.get_health())
+    
+        else:
+            battle = False
+            print("You defeated it")
+
+            return True
     
 
     
