@@ -12,6 +12,38 @@ class player:
         self.armour = Parmour
         self.luck = Pluck
 
+        def get_name(self):
+            return self.name
+
+        def get_health(self):
+            return self.health
+
+        def get_attack(self):
+            return self.attack
+
+        def get_armour(self):
+            return self.armour
+
+        def get_luck(self):
+            return self.luck
+        
+
+        def set_name(self):
+            self.name = new_name
+        
+        def set_health(self):
+            self.health = new_health
+        
+        def set_attack(self):
+            self.attack = new_attack
+        
+        def set_armour(self):
+            self.armour = new_armour
+        
+        def set_luck(self):
+            self.luck = new_luck
+
+
 
 player_list = [
     player("lord", 100, 50, 40, 5),
@@ -28,11 +60,36 @@ class minion:
         self.armour = Marmour
 
 
+        def get_name(self):
+            return self.name
+        
+        def get_health(self):
+            return self.health
+
+        def get_attack(self):
+            return self.attack
+
+        def get_armour(self):
+            return self.armour
+
+        
+        def set_health(self):
+            self.health = new_health
+        
+        def set_attack(self):
+            self.attack = new_attack
+        
+        def set_armour(self):
+            self.armour = new_armour
+
+
+
+
 minion_list = [
     minion("Goblin", 25, 25, 25),
     minion("Skeleton", 50, 50, 50),
     minion("Kobold", 75, 75, 75),
-]
+    ]
 
 
 # functions
