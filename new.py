@@ -1,9 +1,16 @@
 import time
+import random
 
 PLAYER_DATA = {
     "vitality": 20,
     "luck": 10
 }
+
+def vitality(vitality_level: int):
+    PLAYER_DATA["vitality"] = PLAYER_DATA["vitality"] + (vitality_level)
+
+def luck(luck_level: int):
+    PLAYER_DATA["luck"] = PLAYER_DATA["luck"] + (luck_level)
 
 def enter_castle():
     time.sleep(1)
@@ -61,12 +68,35 @@ def bomb_trap():
     
     if player_select == "1":
         print("you sprint for the door")
+        chance = random.randint(8, 12)
+        if int(chance) > PLAYER_DATA["luck"]:
+            print("You were caught in the blast")
+            vitality(-3)
+        else:
+            print("You managed to reach the door before it blew")
         
     elif player_select == "2":
         print("you throw the table onto its side and hope for the best")
+        time.sleep(1)
+        print("You hear the fuse hissing away. It'll blow any second")
+        time.sleep(1)
+        print(".")
+        time.sleep(0.5)
+        print("..")
+        time.sleep(0.5)
+        print("...")
+        time.sleep(1)
+        print("BOOM")
+        time.sleep(1)
+        print("The explosion rocks the workshop, sending the crates and their contents everywhere")
+        time.sleep(1)
+        print("Thankfully, the table sheltered you from the blast.")
+        time.sleep(1)
+        print("Although dazed, you make your way to the door at the end of the room")
+
         
 
-
+"""
 def curiosity_trap():
 
 def cavern_fight():
@@ -82,3 +112,10 @@ def hall_fight_1():
 def hall_fight_2():
 
 def mighty_sword():
+"""
+
+bomb_trap()
+bomb_trap()
+bomb_trap()
+bomb_trap()
+bomb_trap()
