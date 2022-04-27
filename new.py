@@ -159,12 +159,17 @@ def hall_fight_1():
     else:
         print("you are unscathed")
         print("You make your way to the next room")
+        hall_fight_2()
 
 
+def curiosity_trap():
 
-# def curiosity_trap():
 
-# def cavern_fight():
+def hall_fight_2():
+
+
+def cavern_fight():
+
 
 # def riddle_room():
 
@@ -172,7 +177,6 @@ def hall_fight_1():
 
 # def ceiling_trap():
 
-# def hall_fight_2():
 
 # def mighty_sword():
 
