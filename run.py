@@ -5,13 +5,13 @@ import math
 # classes
 
 
-class player:
-    def __init__(self, Pname, Phealth, Pattack, Parmour, Pluck):
-        self.name = Pname
-        self.health = Phealth
-        self.attack = Pattack
-        self.armour = Parmour
-        self.luck = Pluck
+class Player:
+    def __init__(self, p_name, p_health, p_attack, p_armour, p_luck):
+        self.name = p_name
+        self.health = p_health
+        self.attack = p_attack
+        self.armour = p_armour
+        self.luck = p_luck
 
     def get_name(self):
         return self.name
@@ -45,12 +45,12 @@ class player:
         self.luck = new_luck
 
 
-class minion:
-    def __init__(self, Mname, Mhealth, Mattack, Marmour):
-        self.name = Mname
-        self.health = Mhealth
-        self.attack = Mattack
-        self.armour = Marmour
+class Minion:
+    def __init__(self, m_name, m_health, m_attack, m_armour):
+        self.name = m_name
+        self.health = m_health
+        self.attack = m_attack
+        self.armour = m_armour
 
 
     def get_name(self):
@@ -84,8 +84,9 @@ class minion:
 # functions
 
 def choose_player():
-
-    player_select = input("do you wish to play as\n (1) The Lord?\n (2) The Adventurer?\n (3) The Vagabond?\n")
+    player_select_display = ("do you wish to play as\n (1) The Lord?\n ",
+                             "(2) The + Adventurer?\n (3) The Vagabond?\n")
+    player_select = input(player_select_display)
     while player_select != "1" and player_select != "2" and player_select != "3":
         print("unrecognised input. Please try again and select from the options given")
         player_select = input("do you wish to play as\n (1) The Lord?\n (2) The Adventurer?\n (3) The Vagabond?\n")
@@ -145,7 +146,8 @@ def minion_attack(hitChance, attackValue, name, defence):
     else:
         print("They miss!")
         return 0
-    
+
+
 def hitChance(luck):
     hit = random.randint(0,4)
     if luck < hit:
@@ -154,6 +156,7 @@ def hitChance(luck):
     else:
         print("You hit!")
         return True
+
 
 def isDead(health):
     if health < 1:
@@ -197,7 +200,7 @@ def battle(genEnemy, genCharacter):
         print("swing!")
         hit = hitChance(genCharacter.get_luck())
 
-        if hit == True:
+        if hit:
             genEnemy.set_health(genEnemy.get_health() - damage)
             print("You hit!")
             print("Their health is now", genEnemy.get_health())
@@ -207,7 +210,7 @@ def battle(genEnemy, genCharacter):
     
         enemyDead = isDead(genEnemy.get_health())
 
-        if enemyDead == False:
+        if not enemyDead:
             genCharacter.set_health(genCharacter.get_health() - minion_attack(genEnemy.get_attack(), genEnemy.get_name(), genCharacter.get_armour()))
 
             characterDead = isDead(genCharacter.get_health())
