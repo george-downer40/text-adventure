@@ -572,7 +572,27 @@ def armoury_fight():
     integer to determine if they lose vitality.
     ceiling_trap() is called at end of function.
     """
-    print("placeholder")
+    print("You step through into an armoury")
+    time.sleep(1)
+    print("In front of you is a ghostly knight")
+    time.sleep(1)
+    print("You have no choice but to fight it")
+    time.sleep(1)
+    print("You swing your sword at the knight")
+    chance = random.randint(8, 12)
+
+    if int(chance) > PLAYER_DATA["luck"]:
+        print("You strike down the foul apparition")
+        print("but not before it hits you first")
+        vitality(-3)
+        print("Your vitality level has been reduced to ")
+        print(PLAYER_DATA["vitality"])
+        print("You make your way to the next room")
+        riddle_room()
+    else:
+        print("you are unscathed")
+        print("You make your way to the next room")
+        riddle_room()
 
 # def ceiling_trap():
 
