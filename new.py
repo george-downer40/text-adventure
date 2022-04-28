@@ -111,7 +111,8 @@ def bomb_trap():
         if int(chance) > PLAYER_DATA["luck"]:
             print("You were caught in the blast")
             vitality(-3)
-            print("Your vitality level has been reduced to " + str(PLAYER_DATA["vitality"]))
+            print("Your vitality level has been reduced to ")
+            print(PLAYER_DATA["vitality"])
             time.sleep(1)
             print("You hear Treguard's voice inside the helm")
             time.sleep(0.5)
@@ -168,7 +169,8 @@ def hall_fight_1():
         print("You strike down the foul beast")
         print("but not before it hits you first")
         vitality(-3)
-        print("Your vitality level has been reduced to " + str(PLAYER_DATA["vitality"]))
+        print("Your vitality level has been reduced to ")
+        print(PLAYER_DATA["vitality"])
         print("You make your way to the next room")
         hall_fight_2()
     else:
@@ -206,40 +208,47 @@ def curiosity_trap():
         print("Which door do you choose?")
         print("(1) the ornate gold door?")
         print("(2) the weathered stone door?")
-        p_select = input("select (1) or (2)")
+        p_select = input("select (1) or (2)\n")
 
-        if p_select == "1":
-            print("You try to push the ornate door open")
-            time.sleep(1)
-            print("It seems to be jammed")
-            time.sleep(1)
-            print("You push harder against the door, using both hands")
-            time.sleep(1)
-            print("You can feel it starting to budge")
-            time.sleep(1)
-            print("It finally swings open!")
-            print("You're bathed in a warm golden light")
-            time.sleep(1)
-            print("You try to walk through the door but your legs wont move!")
-            time.sleep(1)
-            print("You look down to see your feet are now solid gold!")
-            time.sleep(0.5)
-            print("It spreads up your legs and your torso")
-            time.sleep(0.5)
-            print("Where once you felt warmth from the golden light emanating from the doorway,")
-            print("Now you just feel an intense cold and a creeping sense of horror")
-            time.sleep(1)
-            print("The gold spreads up your neck and over your face")
-            time.sleep(1)
-            print("There's nothing you can do...")
-            vitality(-100)
+    if p_select == "1":
+        print("You try to push the ornate door open")
+        time.sleep(1)
+        print("It seems to be jammed")
+        time.sleep(1)
+        print("You push harder against the door, using both hands")
+        time.sleep(1)
+        print("You can feel it starting to budge")
+        time.sleep(1)
+        print("It finally swings open!")
+        print("You're bathed in a warm golden light")
+        time.sleep(1)
+        print("You try to walk through the door but your legs wont move!")
+        time.sleep(1)
+        print("You look down to see your feet are now solid gold!")
+        time.sleep(0.5)
+        print("It spreads up your legs and your torso")
+        time.sleep(0.5)
+        print("Where once you felt warmth from the golden light")
+        print("emanating from the doorway,")
+        time.sleep(0.5)
+        print("now you just feel an intense cold and a")
+        print("creeping sense of horror")
+        time.sleep(1)
+        print("The gold spreads up your neck and over your face")
+        time.sleep(1)
+        print("There's nothing you can do...")
+        vitality(-100)
+        check_vitality()
+
+    elif p_select == "2":
+        print("You push the stone door open and walk through")
+        armoury_fight()
 
 
+# def hall_fight_2():
 
-def hall_fight_2():
 
-
-def cavern_fight():
+# def cavern_fight():
 
 
 # def riddle_room():
@@ -252,8 +261,4 @@ def cavern_fight():
 # def mighty_sword():
 
 
-hall_fight_1()
-hall_fight_1()
-hall_fight_1()
-hall_fight_1()
-hall_fight_1()
+bomb_trap()
