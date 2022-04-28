@@ -97,7 +97,7 @@ def bomb_trap():
         if int(chance) > PLAYER_DATA["luck"]:
             print("You were caught in the blast")
             vitality(-3)
-            print("Your vitality has been reduced to " + str(PLAYER_DATA["vitality"]))
+            print("Your vitality level has been reduced to " + str(PLAYER_DATA["vitality"]))
             time.sleep(1)
             print("You hear Treguard's voice inside the helm")
             time.sleep(0.5)
@@ -149,11 +149,12 @@ def hall_fight_1():
     time.sleep(1)
     print("You swing your sword at the goblin")
     chance = random.randint(8, 12)
+
     if int(chance) > PLAYER_DATA["luck"]:
         print("You strike down the foul beast")
-        print("but not before it hit you first")
+        print("but not before it hits you first")
         vitality(-3)
-        print("Your vitality has been reduced to " + str(PLAYER_DATA["vitality"]))
+        print("Your vitality level has been reduced to " + str(PLAYER_DATA["vitality"]))
         print("You make your way to the next room")
         hall_fight_2()
     else:
@@ -163,6 +164,62 @@ def hall_fight_1():
 
 
 def curiosity_trap():
+    print("flavour text of room. Mention classical gold statues and pillars")
+    time.sleep(1)
+    print("An insciption is marked on the largest pillar.")
+    time.sleep(1)
+    print("It reads:")
+    print("UTI INTERPRES LATINE")
+    time.sleep(1)
+    print("There are two doors to choose from:")
+    time.sleep(1)
+    print("An ornate door with gold filigree in front of you")
+    print("and gold letters reading 'omne quod nitet non est aurum'")
+    time.sleep(1)
+    print("and a weathered stone door to your right")
+    print("with a wooden sign reading 'tutum (icis)'")
+    time.sleep(1)
+    print("Which door do you choose?")
+    time.sleep(1)
+    print("(1) the ornate gold door?")
+    print("(2) the weathered stone door?")
+    p_select = input("select (1) or (2)")
+
+    while p_select != "1" and p_select != "2":
+        print("unrecognised input")
+        print("Please try again and select from the options given")
+        time.sleep(1)
+        print("Which door do you choose?")
+        print("(1) the ornate gold door?")
+        print("(2) the weathered stone door?")
+        p_select = input("select (1) or (2)")
+
+        if p_select == "1":
+            print("You try to push the ornate door open")
+            time.sleep(1)
+            print("It seems to be jammed")
+            time.sleep(1)
+            print("You push harder against the door, using both hands")
+            time.sleep(1)
+            print("You can feel it starting to budge")
+            time.sleep(1)
+            print("It finally swings open!")
+            print("You're bathed in a warm golden light")
+            time.sleep(1)
+            print("You try to walk through the door but your legs wont move!")
+            time.sleep(1)
+            print("You look down to see your feet are now solid gold!")
+            time.sleep(0.5)
+            print("It spreads up your legs and your torso")
+            time.sleep(0.5)
+            print("Where once you felt warmth from the golden light emanating from the doorway,")
+            print("Now you just feel an intense cold and a creeping sense of horror")
+            time.sleep(1)
+            print("The gold spreads up your neck and over your face")
+            time.sleep(1)
+            print("There's nothing you can do...")
+            vitality(-100)
+
 
 
 def hall_fight_2():
