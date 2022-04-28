@@ -245,7 +245,28 @@ def curiosity_trap():
         armoury_fight()
 
 
-# def hall_fight_2():
+def hall_fight_2():
+    print("flavour text of room. Are you back in the same room?")
+    time.sleep(1)
+    print("The goblin you slew has risen from the death")
+    time.sleep(1)
+    print("You have no choice but to fight it")
+    time.sleep(1)
+    print("You swing your sword at the goblin")
+    chance = random.randint(8, 12)
+
+    if int(chance) > PLAYER_DATA["luck"]:
+        print("You strike down the foul beast")
+        print("but not before it hits you first")
+        vitality(-3)
+        print("Your vitality level has been reduced to ")
+        print(PLAYER_DATA["vitality"])
+        print("You make your way to the next room")
+        mighty_sword()
+    else:
+        print("you are unscathed")
+        print("You make your way to the next room")
+        mighty_sword()
 
 
 # def cavern_fight():
