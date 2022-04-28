@@ -372,7 +372,13 @@ def cavern_fight():
 
 def riddle_room():
     """
-    
+    Function provides player with 3 options.
+    2 options reduces their vitality and 1 option increases it.
+    If player selects (1) or (3), the vitality() function is called and
+    reduces vitality by 10, followed by the check_vitality() function.
+    if player selects (2), the vitality function is called
+    and increases vitality by 5.
+    mighty_sword() function is called at the end.
     """
     print("Flavour text for room")
     time.sleep(1)
@@ -486,6 +492,12 @@ def riddle_room():
 
 
 def mighty_sword():
+    """
+    function runs a while loop that reduces the player's vitality and
+    calls the check_vitality() function. If the player's vitality is not
+    reduced below 1, then the player wins and the replay_game() function
+    is called.
+    """
     print("You find yourself in a circular room")
     time.sleep(1)
     print("before you lies your prize")
@@ -511,6 +523,11 @@ def mighty_sword():
 
 
 def replay_game():
+    """
+    function is called if the player wins the game or if the game_over()
+    function is called. If the player selects (1), the game will call the main() function
+    and restart. If the player selects (2), the script will stop running.
+    """
     print("Would you like to play again?")
     time.sleep(1)
     print("(1) Yes")
@@ -540,10 +557,21 @@ def replay_game():
 
 
 def main():
+    """
+    function that starts the game in the script.
+    calls enter_castle() function to begin game.
+    """
     enter_castle()
 
 
 def armoury_fight():
+    """
+    Function operates in similar way to hall_fight_1().
+    Player will encounter an enemy and the function uses
+    the luck key from the PLAYER_DATA dictionary as well as a random
+    integer to determine if they lose vitality.
+    ceiling_trap() is called at end of function.
+    """
     print("placeholder")
 
 # def ceiling_trap():
