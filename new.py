@@ -301,5 +301,10 @@ def mighty_sword():
         vitality(-2)
         check_vitality()
         print(PLAYER_DATA["vitality"])
+    
+    print("Finally, the sword pulls free from the plinth!")
+    time.sleep("You won!")
+    
+
 
 mighty_sword()
