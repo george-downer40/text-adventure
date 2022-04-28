@@ -15,6 +15,20 @@ def luck(luck_level: int):
     PLAYER_DATA["luck"] = PLAYER_DATA["luck"] + (luck_level)
 
 
+def check_vitality():
+    if PLAYER_DATA["vitality"] < 1:
+        game_over()
+
+
+def game_over():
+    print("Ooh, nasty...")
+    time.sleep(1)
+    print("You have lost all your vitality")
+    time.sleep(1)
+    print("please try again")
+    exit()
+
+
 def enter_castle():
     time.sleep(1)
     print("You enter the castle and meet Treguard")
