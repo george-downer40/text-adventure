@@ -1,404 +1,464 @@
-import random
 import time
-import math
+import random
+
+PLAYER_DATA = {
+    "vitality": 20,
+    "luck": 10
+}
 
 
-# classes
+def vitality(vitality_level: int):
+    """
+    function allows player's vitality to be altered during the game
+    1 paramater fed into the function: vitality_level: int
+    this is used in the function itself
+    """
+    PLAYER_DATA["vitality"] = PLAYER_DATA["vitality"] + (vitality_level)
 
 
-class Player:
-    def __init__(self, p_name, p_health, p_attack, p_armour, p_luck):
-        self.name = p_name
-        self.health = p_health
-        self.attack = p_attack
-        self.armour = p_armour
-        self.luck = p_luck
-
-    def get_name(self):
-        return self.name
-
-    def get_health(self):
-        return self.health
-
-    def get_attack(self):
-        return self.attack
-
-    def get_armour(self):
-        return self.armour
-
-    def get_luck(self):
-        return self.luck
-        
-
-    def set_name(self, new_name):
-        self.name = new_name
-        
-    def set_health(self, new_health):
-        self.health = new_health
-        
-    def set_attack(self, new_attack):
-        self.attack = new_attack
-        
-    def set_armour(self, new_armour):
-        self.armour = new_armour
-        
-    def set_luck(self, new_luck):
-        self.luck = new_luck
+def luck(luck_level: int):
+    """
+    function allows player's luck to be altered during the game
+    1 paramater fed into the function: luck_level: int
+    this is used in the function itself
+    """
+    PLAYER_DATA["luck"] = PLAYER_DATA["luck"] + (luck_level)
 
 
-class Minion:
-    def __init__(self, m_name, m_health, m_attack, m_armour, m_chance):
-        self.name = m_name
-        self.health = m_health
-        self.attack = m_attack
-        self.armour = m_armour
-        self.chance = m_chance
-
-    def get_name(self):
-        return self.name
-        
-    def get_health(self):
-        return self.health
-
-    def get_attack(self):
-        return self.attack
-
-    def get_armour(self):
-        return self.armour
-    
-    def get_chance(self):
-        return self.chance
-    
-
-    def set_name(self, new_name):
-        self.name = new_name
-        
-    def set_health(self, new_health):
-        self.health = new_health
-        
-    def set_attack(self, new_attack):
-        self.attack = new_attack
-        
-    def set_armour(self, new_armour):
-        self.armour = new_armour
-    
-    def set_chance(self, new_chance):
-        self.chance = new_chance
+def check_vitality():
+    if PLAYER_DATA["vitality"] >= 4 and PLAYER_DATA["vitality"] < 10:
+        print("You hear Treguards voice")
+        time.sleep(1)
+        print("'Careful adventurerer, your vitality is not great")
+    elif PLAYER_DATA["vitality"] >= 1 and PLAYER_DATA["vitality"] < 4:
+        print("Vitality critical! Be careful!")
+    elif PLAYER_DATA["vitality"] < 1:
+        game_over()
 
 
-
-
-
-
-
-# functions
-
-def choose_player():
-    player_select_display = ("do you wish to play as\n (1) The Lord?\n ",
-                             "(2) The + Adventurer?\n (3) The Vagabond?\n")
-    player_select = input(player_select_display)
-    while player_select != "1" and player_select != "2" and player_select != "3":
-        print("unrecognised input. Please try again and select from the options given")
-        player_select = input("do you wish to play as\n (1) The Lord?\n (2) The Adventurer?\n (3) The Vagabond?\n")
-
-    if player_select == "1":
-        playerName = "Lord"
-        playerHealth = 110
-        playerAttack = 50
-        playerArmour = 40
-        playerLuck = 5
-        print(f"You have chosen the {playerName}")
-    elif player_select == "2":
-        playerName = "Adventurer"
-        playerHealth = 100
-        playerAttack = 50
-        playerArmour = 40
-        playerLuck = 5
-        print(f"You have chosen the {playerName}")
-    elif player_select == "3":
-        playerName = "Vagabond"
-        playerHealth = 90
-        playerAttack = 50
-        playerArmour = 40
-        playerLuck = 5
-        print(f"You have chosen the {playerName}")
-
-    return (playerName, playerHealth, playerAttack, playerArmour, playerLuck)
-
-
-def generate_minion():
-    minion_name_list = [
-        "Goblin",
-        "Skeleton",
-        "Kobold",]
-    name = random.choice(minion_name_list)
-    health = random.randint(20, 40)
-    attack = random.randint(75, 80)
-    armour = random.randint(10, 20)
-    chance = random.randint(20, 40)
-
-    print(name)
-    print(health)
-    print(attack)
-    print(armour)
-
-    return Minion(name, health, attack, armour, chance)
-
-
-def minion_attack(hitChance, attackValue, name, defence):
-    print(name, "swings at you...")
-    hit = random.randint(0,10)
-    if hitChance >= hit:
-        print("and strikes!")
-        loss = attackValue - defence
-        print(f"You stagger losing {loss} health")
-        return math.ceil(loss)
-    else:
-        print("They miss!")
-        return 0
-
-
-def hitChance(luck):
-    hit = random.randint(1, 5)
-    if luck < hit:
-        print("MISS!")
-        return False
-    else:
-        print("You hit!")
-        return True
-
-
-def isDead(health):
-    if health < 1:
-        return True
-    else:
-        return False
-
-
-def gameOver(enemyDead):
-    if enemyDead == True:
-        print("you slew the foul minion")
-    else:
-        print("You have been slain!")
-        exit()
-
-
-def battle(genEnemy, genCharacter):
-    print("You fight the", genEnemy.get_name(), "are you ready?")
-    print("The stats are")
-    print(vars(genEnemy))
-    print("You attack the enemy")
-
-    battle = True
-
-    while battle == True:
-        print("(1) attack\n (2) attack\n (3) attack\n")
-        choice = input()
-
-        while choice != "1" and choice != "2" and choice != "3":
-            print("input wrong. Try again")
-            print("(1) attack\n (2) attack\n (3) attack\n")
-            choice = input()
-    
-        if choice == "1":
-            damage = genCharacter.get_attack()
-        elif choice == "2":
-            damage = genCharacter.get_attack()
-        elif choice == "3":
-            damage = genCharacter.get_attack()
-    
-        print("swing!")
-        hit = hitChance(genCharacter.get_luck())
-
-        if hit:
-            genEnemy.set_health(genEnemy.get_health() - damage)
-            print("You hit!")
-            print("Their health is now", genEnemy.get_health())
-    
-        else:
-            print("You missed")
-    
-        enemyDead = isDead(genEnemy.get_health())
-
-        if not enemyDead:
-            genCharacter.set_health(genCharacter.get_health() - minion_attack(genEnemy.get_chance(), genEnemy.get_attack(), genEnemy.get_name(), genCharacter.get_armour()))
-
-            characterDead = isDead(genCharacter.get_health())
-        
-            if characterDead == True:
-                battle = False
-                return False
-        
-            else:
-                print("Your health is", genCharacter.get_health())
-    
-        else:
-            battle = False
-            print("You defeated it")
-
-            return True,
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def game_over():
+    """
+    runs when player loses all vitality
+    prints a game over message then calls
+    replay_game() function
+    """
+    print("Ooh, nasty...")
+    time.sleep(1)
+    print("You have lost all your vitality")
+    time.sleep(1)
+    print("please try again")
+    replay_game()
 
 
 def enter_castle():
+    """
+    first function run in main() function
+    starts the game
+    """
     time.sleep(1)
     print("You enter the castle and meet Treguard")
     time.sleep(1)
     print("he gives you your quest...")
     time.sleep(1)
-    print("With that, you accept your quest and step through the shimmering portal...")
+    print("With that, you accept your quest and")
+    print("step through the shimmering portal...")
     time.sleep(1)
     main_hall()
 
 
 def main_hall():
+    """
+    function is called after enter_castle()
+    gives player 3 options. Depending on what they select
+    either hall_fight_1(), curiosity_trap() or bomb_trap()
+    functions are called
+    """
     print("You find yourself in a great hall with lots of flavour text.")
     time.sleep(1)
-    print("There appears to be three exits from this place;\n a large door at the end of the hall,\n a door to your left,\n and a door to your right. ")
+    print("There appears to be three exits from this place;")
     time.sleep(1)
-    player_select = input("Do you\n (1) go through the door in front of you?\n (2) take the door to your left? \n (3) take the door to your right?\n")
+    print("a large door at the end of the hall,")
+    time.sleep(0.5)
+    print("a door to your left,")
+    time.sleep(0.5)
+    print("and a door to your right.")
+    time.sleep(1)
+    print("Do you\n (1) go through the door in front of you?")
+    print("(2) take the door to your left?")
+    print("(3) take the door to your right?")
+    p_select = input("select (1), (2) or (3)")
 
-    while player_select != "1" and player_select != "2" and player_select != "3":
-        print("unrecognised input. Please try again and select from the options given")
-        player_select = input("Do you \n (1) go through the door in front of you? \n (2) take the door to your left? \n (3) take the door to your right?\n")
-    
-    if player_select == "1":
+    while p_select != "1" and p_select != "2" and p_select != "3":
+        print("unrecognised input")
+        print("Please try again and select from the options given")
+        print("Do you\n (1) go through the door in front of you?")
+        print("(2) take the door to your left?")
+        print("(3) take the door to your right?")
+        p_select = input("select (1), (2) or (3)")
+
+    if p_select == "1":
         print("you chose 1")
-        minion_room()
-    elif player_select == "2":
+        hall_fight_1()
+    elif p_select == "2":
         print("you chose 2")
-    elif player_select == "3":
+        curiosity_trap()
+    elif p_select == "3":
         print("you chose 3")
-    
+        bomb_trap()
 
 
-
-def minion_room():
-    print("as you enter the room, you see before you a foul creature!")
+def bomb_trap():
+    """
+    function called if user selects (3) in main_hall() function.
+    Depending on player selection, they will either lose
+    vitality or continue without taking damage.
+    Both selections lead to cavern_fight() function being
+    called
+    """
     time.sleep(1)
-    print("How do you proceed?")
+    print("You find yourself in a what seems to be a workshop,")
+    print("with beaten copper panels lining the wall.")
     time.sleep(1)
-    player_select = input("Do you:\n (1) fight the creature?\n (2) try to sneak past it?\n")
-    while player_select != "1" and player_select != "2":
-        print("unrecognised input. Please try again and select from the options given")
-        player_select = input("Do you:\n (1) fight the creature?\n (2) try to sneak past it?\n")
-    
-    if player_select == "1":
-        print("you prepare yourself for battle!")
-        battle(genEnemy, genCharacter)
-    elif player_select == "2":
-        print("you attempt to sneak past the creature")
-    
-    return chosen_minion
+    print("There are crates of nuts and bolts strewn across the floor")
+    print("and a large wooden table a few paces in front of you")
+    time.sleep(1)
+    print("It looks like there's a door on the other side of the workshop")
+    time.sleep(1)
+    print("A loud hissing noise emanates from the middle of the workshop...")
+    time.sleep(1)
+    print("It's a large bomb! It's fuse is slowly burning down.")
+    time.sleep(1)
+    print("You don't have much time to act.")
+    time.sleep(1)
+    print("Do you...")
+    print("(1) Run for the door")
+    print("(2) Take shelter using the table?")
+    p_select = input("select (1) or (2)")
 
-"""
+    while p_select != "1" and p_select != "2":
+        print("unrecognised input")
+        print("Please try again and select from the options given")
+        print("Do you...")
+        print("(1) Run for the door")
+        print("(2) Take shelter using the table?")
+        p_select = input("select (1) or (2)")
 
-def fight(chosen_minion):
-    print(f"you swing your weapon at the {chosen.minion.name}")
+    if p_select == "1":
+        print("you sprint for the door")
+        chance = random.randint(8, 12)
+        if int(chance) > PLAYER_DATA["luck"]:
+            print("You were caught in the blast")
+            vitality(-3)
+            print("Your vitality level has been reduced to ")
+            print(PLAYER_DATA["vitality"])
+            time.sleep(1)
+            print("You hear Treguard's voice inside the helm")
+            time.sleep(0.5)
+            print("'Careful adventurer, death is a very real possibility'")
+            time.sleep(1)
+            print("Your body aches, you can't take too much damage")
+            print("or you will surely perish")
+            time.sleep(1)
+            print("You make your way to the door at the end of the workshop")
+            print("and through the door")
+            cavern_fight()
+        else:
+            print("You managed to reach the door before it blew!")
+            time.sleep(1)
+            print("Luck must be with you today")
+            time.sleep(1)
+            print("You step through the door")
+            cavern_fight()
 
-
-
-# def death():
-
-
-def generate_minion():
-    minion_list = [
-    goblin = minion("Goblin", 25, 25, 25),
-    skeleton = minion("Skeleton", 50, 50, 50),
-    kobold = minion("Kobold", 75, 75, 75),
-    ]
-    random_minion = random.choice(minion_list)
-    print(vars(random_minion))
-
-
- 
-
-# def trap_fail():
-
-
-# def hallway_trap_room():
-
-
-# def curiosity_trap_room():
-
-
-# def treasure_room():
-
-
-# def bomb_room():
-
-
-# def riddle_room_1():
-
-
-# def split_room():
-
-
-# def trap_room_2():
-
-
-# def riddle_room_2():
-
-
-# def potions_room():
-
-
-# def mighty_sword_room():
-
-
-# def boss_fight():
-
-
-# def win_game():
+    elif p_select == "2":
+        print("you throw the table onto its side and hope for the best")
+        time.sleep(1)
+        print("You hear the fuse hissing away. It'll blow any second")
+        time.sleep(1)
+        print(".")
+        time.sleep(0.5)
+        print("..")
+        time.sleep(0.5)
+        print("...")
+        time.sleep(1)
+        print("BOOM")
+        time.sleep(1)
+        print("The explosion rocks the workshop,")
+        print("sending the crates and their contents everywhere")
+        time.sleep(1)
+        print("Thankfully, the table sheltered you from the blast.")
+        time.sleep(1)
+        print("Although dazed, you make your way to the door")
+        print("at the end of the workshop and step through")
+        cavern_fight()
 
 
-# def play_again():
+def hall_fight_1():
+    """
+    function called if player selects (1) in main_hall()
+    function. Player will encounter an enemy and the function uses
+    the luck key from the PLAYER_DATA dictionary as well as a random
+    integer to determine if they lose vitality.
+    hall_fight_2() is called at end of function.
+    """
+    print("flavour text of room")
+    time.sleep(1)
+    print("Blocking your way is a menacing goblin")
+    time.sleep(1)
+    print("You have no choice but to fight it")
+    time.sleep(1)
+    print("You swing your sword at the goblin")
+    chance = random.randint(8, 12)
 
-"""
-"""
-genCharacter = Player("Test", 100, 20, 20, 6)
+    if int(chance) > PLAYER_DATA["luck"]:
+        print("You strike down the foul beast")
+        print("but not before it hits you first")
+        vitality(-3)
+        print("Your vitality level has been reduced to ")
+        print(PLAYER_DATA["vitality"])
+        print("You make your way to the next room")
+        hall_fight_2()
+    else:
+        print("you are unscathed")
+        print("You make your way to the next room")
+        hall_fight_2()
 
-whoDied = battle(generate_minion(), genCharacter)
-gameOver(whoDied)
 
-whoDied = battle(generate_minion(), genCharacter)
-gameOver(whoDied)
+def curiosity_trap():
+    """
+    function provides player with 2 options. If player selects (1)
+    vitality() function is called and vitality is reduced by -100
+    which calls the check_vital() function and guarantees a game over.
+    If player selects (2), the armoury_fight() function is called.
+    """
+    print("flavour text of room. Mention classical gold statues and pillars")
+    time.sleep(1)
+    print("An insciption is marked on the largest pillar.")
+    time.sleep(1)
+    print("It reads:")
+    print("UTI INTERPRES LATINE")
+    time.sleep(1)
+    print("There are two doors to choose from:")
+    time.sleep(1)
+    print("An ornate door with gold filigree in front of you")
+    print("and gold letters reading 'omne quod nitet non est aurum'")
+    time.sleep(1)
+    print("and a weathered stone door to your right")
+    print("with a wooden sign reading 'tutum (icis)'")
+    time.sleep(1)
+    print("Which door do you choose?")
+    time.sleep(1)
+    print("(1) the ornate gold door?")
+    print("(2) the weathered stone door?")
+    p_select = input("select (1) or (2)")
 
-whoDied = battle(generate_minion(), genCharacter)
-gameOver(whoDied)
-"""
+    while p_select != "1" and p_select != "2":
+        print("unrecognised input")
+        print("Please try again and select from the options given")
+        time.sleep(1)
+        print("Which door do you choose?")
+        print("(1) the ornate gold door?")
+        print("(2) the weathered stone door?")
+        p_select = input("select (1) or (2)\n")
+
+    if p_select == "1":
+        print("You try to push the ornate door open")
+        time.sleep(1)
+        print("It seems to be jammed")
+        time.sleep(1)
+        print("You push harder against the door, using both hands")
+        time.sleep(1)
+        print("You can feel it starting to budge")
+        time.sleep(1)
+        print("It finally swings open!")
+        print("You're bathed in a warm golden light")
+        time.sleep(1)
+        print("You try to walk through the door but your legs wont move!")
+        time.sleep(1)
+        print("You look down to see your feet are now solid gold!")
+        time.sleep(0.5)
+        print("It spreads up your legs and your torso")
+        time.sleep(0.5)
+        print("Where once you felt warmth from the golden light")
+        print("emanating from the doorway,")
+        time.sleep(0.5)
+        print("now you just feel an intense cold and a")
+        print("creeping sense of horror")
+        time.sleep(1)
+        print("The gold spreads up your neck and over your face")
+        time.sleep(1)
+        print("There's nothing you can do...")
+        vitality(-100)
+        check_vitality()
+
+    elif p_select == "2":
+        print("You push the stone door open and walk through")
+        armoury_fight()
+
+
+def hall_fight_2():
+    """
+    Function operates in similar way to hall_fight_1
+    Player will encounter an enemy and the function uses
+    the luck key from the PLAYER_DATA dictionary as well as a random
+    integer to determine if they lose vitality.
+    mighty_sword() is called at end of function.
+    """
+    print("flavour text of room. Are you back in the same room?")
+    time.sleep(1)
+    print("The goblin you slew has risen from the death")
+    time.sleep(1)
+    print("You have no choice but to fight it")
+    time.sleep(1)
+    print("You swing your sword at the undead goblin")
+    chance = random.randint(8, 12)
+
+    if int(chance) > PLAYER_DATA["luck"]:
+        print("You strike down the foul undead beast")
+        print("but not before it hits you first")
+        vitality(-3)
+        print("Your vitality level has been reduced to ")
+        print(PLAYER_DATA["vitality"])
+        print("You make your way to the next room")
+        mighty_sword()
+    else:
+        print("you are unscathed")
+        print("You make your way to the next room")
+        mighty_sword()
+
+
+def cavern_fight():
+    """
+    Function operates in similar way to hall_fight_1 
+    Player will encounter an enemy and the function uses
+    the luck key from the PLAYER_DATA dictionary as well as a random
+    integer to determine if they lose vitality.
+    riddle_room() is called at end of function.
+    """
+    print("You step through into a large cavern")
+    time.sleep(1)
+    print("In front of you is a skeleton")
+    time.sleep(1)
+    print("You have no choice but to fight it")
+    time.sleep(1)
+    print("You swing your sword at the skeleton")
+    chance = random.randint(8, 12)
+
+    if int(chance) > PLAYER_DATA["luck"]:
+        print("You strike down the skeleton")
+        print("but not before it hits you first")
+        vitality(-3)
+        print("Your vitality level has been reduced to ")
+        print(PLAYER_DATA["vitality"])
+        print("You make your way to the next room")
+        riddle_room()
+    else:
+        print("you are unscathed")
+        print("You make your way to the next room")
+        riddle_room()
+
+
+def riddle_room():
+    print("Flavour text for room")
+    time.sleep(1)
+    print("The wall at the end of the chamber begins to crack")
+    time.sleep(1)
+    print("The wall is now a giant carved face made from bricks")
+    time.sleep(1)
+    print("The face lets out a large yawn, shaking the very room")
+    time.sleep(1)
+    print("You steel yourself, ready to fight if need be")
+    time.sleep(1)
+    print("The face starts talking, a booming voice:")
+    time.sleep(1)
+    print("'Ahhh, it's been so very long since I've had company'")
+    time.sleep(1)
+    print("'Tell me, what brings you to castle Knightmare?")
+    time.sleep(1)
+    print("Do you:")
+    print("(1) Tell the stone face of your quest?")
+    print("(2) Stay silent?")
+    time.sleep(1)
+    print("select (1) or (2)")
+    p_select = input("")
+
+    while p_select != "1" and p_select != "2":
+        print("unrecognised input")
+        print("Please try again and select from the options given")
+        time.sleep(1)
+        print("Do you:")
+        print("(1) Tell the stone face of your quest?")
+        print("(2) Stay silent?")
+        time.sleep(1)
+        print("select (1) or (2)")
+        p_select = input("")
+
+    if p_select == "1":
+        print("You tell the face your quest")
+        time.sleep(1)
+        print("whatever the quest is")
+
+
+def mighty_sword():
+    print("You find yourself in a circular room")
+    time.sleep(1)
+    print("before you lies your prize")
+    time.sleep(1)
+    print("You attempt to pull the sword fron the plinth")
+    time.sleep(1)
+    print("you feel the sword testing you,")
+    print("are you worthy?")
+    time.sleep(1)
+    print("You feel your vitality draining from you")
+    x = 0
+    while x < 10:
+        vitality(-1)
+        check_vitality()
+        print(PLAYER_DATA["vitality"])
+        x = x + 1
+
+    print("Finally, the sword pulls free from the plinth!")
+    time.sleep(1)
+    print("You won!")
+
+
+def replay_game():
+    print("Would you like to play again?")
+    time.sleep(1)
+    print("(1) Yes")
+    print("(2) No")
+    p_select = input("select (1) or (2)\n")
+
+    while p_select != "1" and p_select != "2":
+        print("unrecognised input")
+        print("Please try again and select from the options given")
+        time.sleep(1)
+        print("Would you like to play again?")
+        time.sleep(1)
+        print("(1) Yes")
+        print("(2) No")
+        p_select = input("select (1) or (2)\n")
+
+    if p_select == ("1"):
+        print("Great, lets dive back into castle Knightmare")
+        vitality(20)
+        main()
+
+    elif p_select == ("2"):
+        print("You can always try another time adventurer")
+        time.sleep(2)
+        print("closing game")
+        exit()
+
 
 def main():
-    classData = choose_player()
-    global genCharacter
-    genCharacter = Player(classData[0], classData[1], classData[2], classData[3], classData[4])
-
-    minion_data = generate_minion()
-    global genEnemy
-    genEnemy = Minion(minion_data[0], minion_data[1], minion_data[2], minion_data[3], minion_data[4])
     enter_castle()
-    print(vars(genCharacter))
-    characterDead = battle(generate_minion(), genCharacter)
-    gameOver(characterDead)
-    
 
 
-main()
+def armoury_fight():
+    print("placeholder")
 
+# def ceiling_trap():
+
+
+mighty_sword()
