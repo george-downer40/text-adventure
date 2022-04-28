@@ -16,7 +16,13 @@ def luck(luck_level: int):
 
 
 def check_vitality():
-    if PLAYER_DATA["vitality"] < 1:
+    if PLAYER_DATA["vitality"] >= 4 and PLAYER_DATA["vitality"] < 10:
+        print("You hear Treguards voice")
+        time.sleep(1)
+        print("'Careful adventurerer, your vitality is not great")
+    elif PLAYER_DATA["vitality"] >= 1 and PLAYER_DATA["vitality"] < 4:
+        print("Vitality critical! Be careful!")
+    elif PLAYER_DATA["vitality"] < 1:
         game_over()
 
 
@@ -279,7 +285,21 @@ def hall_fight_2():
 # def ceiling_trap():
 
 
-# def mighty_sword():
+def mighty_sword():
+    print("You find yourself in a circular room")
+    time.sleep(1)
+    print("before you lies your prize")
+    time.sleep(1)
+    print("You attempt to pull the sword fron the plinth")
+    time.sleep(1)
+    print("you feel the sword testing you,")
+    print("are you worthy?")
+    time.sleep(1)
+    print("You feel your vitality draining from you")
 
+    for x in range(10):
+        vitality(-2)
+        check_vitality()
+        print(PLAYER_DATA["vitality"])
 
-bomb_trap()
+mighty_sword()
