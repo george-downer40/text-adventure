@@ -8,10 +8,20 @@ PLAYER_DATA = {
 
 
 def vitality(vitality_level: int):
+    """
+    function allows player's vitality to be altered during the game
+    1 paramater fed into the function: vitality_level: int
+    this is used in the function itself
+    """
     PLAYER_DATA["vitality"] = PLAYER_DATA["vitality"] + (vitality_level)
 
 
 def luck(luck_level: int):
+    """
+    function allows player's luck to be altered during the game
+    1 paramater fed into the function: luck_level: int
+    this is used in the function itself
+    """
     PLAYER_DATA["luck"] = PLAYER_DATA["luck"] + (luck_level)
 
 
