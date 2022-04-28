@@ -588,13 +588,30 @@ def armoury_fight():
         print("Your vitality level has been reduced to ")
         print(PLAYER_DATA["vitality"])
         print("You make your way to the next room")
-        riddle_room()
+        ceiling_trap()
     else:
         print("you are unscathed")
         print("You make your way to the next room")
-        riddle_room()
-
-# def ceiling_trap():
+        ceiling_trap()
 
 
-main()
+def ceiling_trap():
+    """
+    Function called after armoury_fight().
+    """
+
+def print_text(text):
+    """
+    function combines time.sleep and print statements.
+    Will delay by 1 second and then print the text.
+    Function is used to refactor and clean up code.
+    """
+    time.sleep(1)
+    print(text)
+ 
+
+
+print_text("test")
+print_text("test 2")
+print_text("test 3")
+print_text("test 4")
