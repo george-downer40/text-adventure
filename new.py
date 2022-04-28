@@ -299,12 +299,45 @@ def cavern_fight():
         riddle_room()
 
 
+def riddle_room():
+    print("Flavour text for room")
+    time.sleep(1)
+    print("The wall at the end of the chamber begins to crack")
+    time.sleep(1)
+    print("The wall is now a giant carved face made from bricks")
+    time.sleep(1)
+    print("The face lets out a large yawn, shaking the very room")
+    time.sleep(1)
+    print("You steel yourself, ready to fight if need be")
+    time.sleep(1)
+    print("The face starts talking, a booming voice:")
+    time.sleep(1)
+    print("'Ahhh, it's been so very long since I've had company'")
+    time.sleep(1)
+    print("'Tell me, what brings you to castle Knightmare?")
+    time.sleep(1)
+    print("Do you:")
+    print("(1) Tell the stone face of your quest?")
+    print("(2) Stay silent?")
+    time.sleep(1)
+    print("select (1) or (2)")
+    p_select = input("")
 
-# def riddle_room():
+    while p_select != "1" and p_select != "2":
+        print("unrecognised input")
+        print("Please try again and select from the options given")
+        time.sleep(1)
+        print("Do you:")
+        print("(1) Tell the stone face of your quest?")
+        print("(2) Stay silent?")
+        time.sleep(1)
+        print("select (1) or (2)")
+        p_select = input("")
 
-# def armoury_fight():
-
-# def ceiling_trap():
+    if p_select == "1":
+        print("You tell the face your quest")
+        time.sleep(1)
+        print("whatever the quest is")
 
 
 def mighty_sword():
@@ -323,7 +356,7 @@ def mighty_sword():
         vitality(-2)
         check_vitality()
         print(PLAYER_DATA["vitality"])
-    
+
     print("Finally, the sword pulls free from the plinth!")
     time.sleep("You won!")
 
@@ -344,12 +377,12 @@ def replay_game():
         print("(1) Yes")
         print("(2) No")
         p_select = input("select (1) or (2)\n")
-    
+
     if p_select == ("1"):
         print("Great, lets dive back into castle Knightmare")
         vitality(20)
         main()
-    
+
     elif p_select == ("2"):
         print("You can always try another time adventurer")
         time.sleep(2)
@@ -359,6 +392,12 @@ def replay_game():
 
 def main():
     enter_castle()
-    
+
+
+def armoury_fight():
+    print("placeholder")
+
+# def ceiling_trap():
+
 
 main()
