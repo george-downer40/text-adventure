@@ -304,6 +304,37 @@ def mighty_sword():
     
     print("Finally, the sword pulls free from the plinth!")
     time.sleep("You won!")
+
+
+def replay_game():
+    print("Would you like to play again?")
+    time.sleep(1)
+    print("(1) Yes")
+    print("(2) No")
+    p_select = input("select (1) or (2)\n")
+
+    while p_select != "1" and p_select != "2":
+        print("unrecognised input")
+        print("Please try again and select from the options given")
+        time.sleep(1)
+        print("Would you like to play again?")
+        time.sleep(1)
+        print("(1) Yes")
+        print("(2) No")
+        p_select = input("select (1) or (2)\n")
+    
+    if p_select == ("1"):
+        Print("Great, lets dive back into castle Knightmare")
+        main()
+    
+    elif p_select == ("2"):
+        print("You can always try another time adventurer")
+        time.sleep(2)
+        print("closing game")
+        exit()
+
+
+
     
 
 
