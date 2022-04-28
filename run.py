@@ -26,6 +26,11 @@ def luck(luck_level: int):
 
 
 def check_vitality():
+    """
+    Function is called whenever player loses vitality.
+    It will show two warnings based on the players vitality
+    and if vitality is reduced to 0 it will call game_over() function.
+    """
     if PLAYER_DATA["vitality"] >= 4 and PLAYER_DATA["vitality"] < 10:
         print("You hear Treguards voice")
         time.sleep(1)
@@ -53,8 +58,12 @@ def game_over():
 def enter_castle():
     """
     first function run in main() function
-    starts the game
+    starts the game.
+    If player has chosen to play again after a run through,
+    function will also update PLAYER_DATA back to it's original
+    values from when the game was first run.
     """
+    PLAYER_DATA.update({'vitality': 20, 'luck': 10})
     time.sleep(1)
     print("You enter the castle and meet Treguard")
     time.sleep(1)
@@ -62,6 +71,9 @@ def enter_castle():
     time.sleep(1)
     print("With that, you accept your quest and")
     print("step through the shimmering portal...")
+    time.sleep(1)
+    print("Your vitality is:")
+    print(PLAYER_DATA["vitality"])
     time.sleep(1)
     main_hall()
 
@@ -71,7 +83,7 @@ def main_hall():
     function is called after enter_castle()
     gives player 3 options. Depending on what they select
     either hall_fight_1(), curiosity_trap() or bomb_trap()
-    functions are called
+    functions are called.
     """
     print("You find yourself in a great hall with lots of flavour text.")
     time.sleep(1)
@@ -113,7 +125,7 @@ def bomb_trap():
     Depending on player selection, they will either lose
     vitality or continue without taking damage.
     Both selections lead to cavern_fight() function being
-    called
+    called.
     """
     time.sleep(1)
     print("You find yourself in a what seems to be a workshop,")
@@ -329,7 +341,7 @@ def hall_fight_2():
 
 def cavern_fight():
     """
-    Function operates in similar way to hall_fight_1 
+    Function operates in similar way to hall_fight_1
     Player will encounter an enemy and the function uses
     the luck key from the PLAYER_DATA dictionary as well as a random
     integer to determine if they lose vitality.
@@ -359,6 +371,9 @@ def cavern_fight():
 
 
 def riddle_room():
+    """
+    
+    """
     print("Flavour text for room")
     time.sleep(1)
     print("The wall at the end of the chamber begins to crack")
@@ -373,30 +388,101 @@ def riddle_room():
     time.sleep(1)
     print("'Ahhh, it's been so very long since I've had company'")
     time.sleep(1)
-    print("'Tell me, what brings you to castle Knightmare?")
+    print("'Why don't we play a little game?")
     time.sleep(1)
-    print("Do you:")
-    print("(1) Tell the stone face of your quest?")
-    print("(2) Stay silent?")
+    print("'If you can answer my riddle, then you can continue on your way'")
     time.sleep(1)
-    print("select (1) or (2)")
+    print("'I may even grant you a boon, it's been so long'")
+    time.sleep(1)
+    print("'However, if you get it wrong, there will be consequences'")
+    time.sleep(1)
+    print("'Okay adventurer, riddle me this'")
+    time.sleep(1)
+    print("'I am not alive, but I grow'")
+    print("'I don't have lungs, but I need air'")
+    print("'I don't have a mouth, but water kills me'")
+    time.sleep(1)
+    print("'What am I?'")
+    time.sleep(1)
+    print("what is your answer?")
+    time.sleep(1)
+    print("(1) Earth")
+    print("(2) Fire")
+    print("(3) Spirit")
+    time.sleep(1)
+    print("select (1), (2) or (3)")
     p_select = input("")
 
     while p_select != "1" and p_select != "2":
         print("unrecognised input")
         print("Please try again and select from the options given")
         time.sleep(1)
-        print("Do you:")
-        print("(1) Tell the stone face of your quest?")
-        print("(2) Stay silent?")
+        print("what is your answer?")
         time.sleep(1)
-        print("select (1) or (2)")
+        print("(1) Earth")
+        print("(2) Fire")
+        print("(3) Spirit")
+        time.sleep(1)
+        print("select (1), (2) or (3)")
         p_select = input("")
 
     if p_select == "1":
-        print("You tell the face your quest")
+        print("You answer 'earth'")
         time.sleep(1)
-        print("whatever the quest is")
+        print("The stone face frowns")
+        time.sleep(1)
+        print("'Incorrect!")
+        time.sleep(1)
+        print("The stone face opens it's mouth wide and a billowing black cloud pours out")
+        time.sleep(1)
+        print("It fills the room and you start to choke")
+        time.sleep()
+        print("You feel your vitality draining from you")
+        vitality(-10)
+        check_vitality()
+
+    elif p_select == "2":
+        print("You answer 'fire'")
+        time.sleep(1)
+        print("The stone face smiles")
+        time.sleep(1)
+        print("'Correct!")
+        time.sleep(1)
+        print("The stone face opens it's mouth wide and a vibrant green cloud pours out")
+        time.sleep(1)
+        print("It fills the room and you envelops you")
+        time.sleep()
+        print("You feel stronger, boosting your vitality")
+        vitality(5)
+        print(PLAYER_DATA["vitality"])
+    
+    elif p_select == "3":
+        print("You answer 'spirit'")
+        time.sleep(1)
+        print("The stone face frowns")
+        time.sleep(1)
+        print("'Incorrect!")
+        time.sleep(1)
+        print("The stone face opens it's mouth wide and a billowing black cloud pours out")
+        time.sleep(1)
+        print("It fills the room and you start to choke")
+        time.sleep()
+        print("You feel your vitality draining from you")
+        vitality(-10)
+        check_vitality()
+
+    time.sleep(1)
+    print("The stone face chuckles")
+    time.sleep(1)
+    print("'Well, I've had my fun with you, you best be on your way'")
+    time.sleep(1)
+    print("The stone face closes its eyes")
+    time.sleep(1)
+    print("Its mouth opens even wider until it's large enough for you to pass through")
+    time.sleep(1)
+    print("You step through the mouth into darkness")
+    mighty_sword()
+
 
 
 def mighty_sword():
@@ -410,6 +496,7 @@ def mighty_sword():
     print("are you worthy?")
     time.sleep(1)
     print("You feel your vitality draining from you")
+
     x = 0
     while x < 10:
         vitality(-1)
@@ -420,6 +507,7 @@ def mighty_sword():
     print("Finally, the sword pulls free from the plinth!")
     time.sleep(1)
     print("You won!")
+    replay_game()
 
 
 def replay_game():
@@ -461,4 +549,4 @@ def armoury_fight():
 # def ceiling_trap():
 
 
-mighty_sword()
+main()
