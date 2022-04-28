@@ -27,6 +27,11 @@ def check_vitality():
 
 
 def game_over():
+    """
+    runs when player loses all vitality
+    prints a game over message then calls
+    replay_game() function
+    """
     print("Ooh, nasty...")
     time.sleep(1)
     print("You have lost all your vitality")
@@ -36,6 +41,10 @@ def game_over():
 
 
 def enter_castle():
+    """
+    first function run in main() function
+    starts the game
+    """
     time.sleep(1)
     print("You enter the castle and meet Treguard")
     time.sleep(1)
@@ -48,6 +57,12 @@ def enter_castle():
 
 
 def main_hall():
+    """
+    function is called after enter_castle()
+    gives player 3 options. Depending on what they select
+    either hall_fight_1(), curiosity_trap() or bomb_trap()
+    functions are called
+    """
     print("You find yourself in a great hall with lots of flavour text.")
     time.sleep(1)
     print("There appears to be three exits from this place;")
@@ -83,6 +98,13 @@ def main_hall():
 
 
 def bomb_trap():
+    """
+    function called if user selects (3) in main_hall() function.
+    Depending on player selection, they will either lose
+    vitality or continue without taking damage.
+    Both selections lead to cavern_fight() function being
+    called
+    """
     time.sleep(1)
     print("You find yourself in a what seems to be a workshop,")
     print("with beaten copper panels lining the wall.")
@@ -162,6 +184,13 @@ def bomb_trap():
 
 
 def hall_fight_1():
+    """
+    function called if player selects (1) in main_hall()
+    function. Player will encounter an enemy and the function uses
+    the luck key from the PLAYER_DATA dictionary as well as a random
+    integer to determine if they lose vitality.
+    hall_fight_2() is called at end of function.
+    """
     print("flavour text of room")
     time.sleep(1)
     print("Blocking your way is a menacing goblin")
@@ -186,6 +215,12 @@ def hall_fight_1():
 
 
 def curiosity_trap():
+    """
+    function provides player with 2 options. If player selects (1)
+    vitality() function is called and vitality is reduced by -100
+    which calls the check_vital() function and guarantees a game over.
+    If player selects (2), the armoury_fight() function is called.
+    """
     print("flavour text of room. Mention classical gold statues and pillars")
     time.sleep(1)
     print("An insciption is marked on the largest pillar.")
@@ -252,6 +287,13 @@ def curiosity_trap():
 
 
 def hall_fight_2():
+    """
+    Function operates in similar way to hall_fight_1
+    Player will encounter an enemy and the function uses
+    the luck key from the PLAYER_DATA dictionary as well as a random
+    integer to determine if they lose vitality.
+    mighty_sword() is called at end of function.
+    """
     print("flavour text of room. Are you back in the same room?")
     time.sleep(1)
     print("The goblin you slew has risen from the death")
@@ -276,6 +318,13 @@ def hall_fight_2():
 
 
 def cavern_fight():
+    """
+    Function operates in similar way to hall_fight_1 
+    Player will encounter an enemy and the function uses
+    the luck key from the PLAYER_DATA dictionary as well as a random
+    integer to determine if they lose vitality.
+    riddle_room() is called at end of function.
+    """
     print("You step through into a large cavern")
     time.sleep(1)
     print("In front of you is a skeleton")
