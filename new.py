@@ -32,7 +32,7 @@ def game_over():
     print("You have lost all your vitality")
     time.sleep(1)
     print("please try again")
-    exit()
+    replay_game()
 
 
 def enter_castle():
@@ -258,11 +258,11 @@ def hall_fight_2():
     time.sleep(1)
     print("You have no choice but to fight it")
     time.sleep(1)
-    print("You swing your sword at the goblin")
+    print("You swing your sword at the undead goblin")
     chance = random.randint(8, 12)
 
     if int(chance) > PLAYER_DATA["luck"]:
-        print("You strike down the foul beast")
+        print("You strike down the foul undead beast")
         print("but not before it hits you first")
         vitality(-3)
         print("Your vitality level has been reduced to ")
@@ -324,7 +324,8 @@ def replay_game():
         p_select = input("select (1) or (2)\n")
     
     if p_select == ("1"):
-        Print("Great, lets dive back into castle Knightmare")
+        print("Great, lets dive back into castle Knightmare")
+        vitality(20)
         main()
     
     elif p_select == ("2"):
@@ -334,8 +335,9 @@ def replay_game():
         exit()
 
 
-
+def main():
+    enter_castle()
     
 
 
-mighty_sword()
+main()
