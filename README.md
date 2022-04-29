@@ -15,12 +15,21 @@
 
 ## Introduction
 
-I have chosen to create a Python based text-based adventure game for my porfolio project 3. It is largely inspired by traditional fantasy tropes such as Dungeons & Dragons, but also an old children's tv show called Knightmare (insert Wikipedia link). This show had a team of contestants guide another player through a series of rooms in a dungeon / castle, with the team having to describe the room and it's contents to the player. 
+I have chosen to create a Python based text-based adventure game for my porfolio project 3. It is largely inspired by traditional fantasy tropes such as Dungeons & Dragons, but also an old children's tv show called Knightmare [Wikipedia link](https://en.wikipedia.org/wiki/Knightmare). This show had a team of contestants guide another player through a series of rooms in a dungeon / castle, with the team having to describe the room and it's contents to the player. 
 
-This game will guide the user / player through a dungeon, in which they will encounter monsters, traps and a boss. There will be 3 stats used during the game; health, attack and a secret stat called luck. The player will be able to raise and lower these stats through different scenarios encountered in the game. The player will also be able to choose between 3 'classes' at the beginning of the game, which will determine their starting stats. These are the Lord, the Adventurer, and the Vagabond. The Lord will be the easiest version of the game, with the Adventurer and Vagabond being increasingly harder. The game is won if they can pass obstacles in the dungeon and reach the final room. The game is lost if they run out of health, or fall victim to a trap.
+This game will guide the player through a dungeon, in which they will encounter monsters, traps and a final scenario. There will be 2 stats used during the game; vitality and luck. The player will be able to raise and lower vitality through different scenarios encountered in the game. The game is won if they can pass obstacles in the dungeon and reach the final room. The game is lost if they run out of health, or fall victim to a trap.
 
+In order for me to creat the game and work out the correct paths, I created a flow chart using Lucid Chart. This helped me to work out what functions I needed, where player input would be needed and how to increase replayability.
 
-## UX
+![flow chart](/assets/images/castle_knightmare_flowchart.png "Lucid Chart flow chart")
+
+## User Stories
+
+* As a fan of the TV show Knightmare, I'd like to play something that invokes nostalgia for the show.
+* As a retro gamer, I'd like to play an old style text adventure game.
+* As a casual user, I'd like something that will generate my interest and make me want to play more than once.
+
+## Features
 
 
 
@@ -29,10 +38,6 @@ This game will guide the user / player through a dungeon, in which they will enc
 * Ecotrust-Canada Markdown (update with link and explanation)
 
 
-
-## Features
-
-The game will make use of classes both for the player and the hero they choose, as well as the enemies faced during the game. This provides a good amount of replayability as the text adventure will not be linear and it will be difficult to have the same run in the game twice.
 
 
 
