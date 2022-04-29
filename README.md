@@ -37,13 +37,13 @@ In order for me to creat the game and work out the correct paths, I created a fl
 
 The game uses a variable dictionary with 2 keys; vitality and luck. These are used throughout the game to determine outcomes in scenarios.
 
-![dictionary](/assets/images/castle_knightmare_flowchart.png "PLAYER_STATS dictionary")
+![dictionary](/assets/images/dictionary.png "PLAYER_STATS dictionary")
 
 The game provides the user with choices to make them feel more involved in playing. Some of these affect chance based outcomes whereas others are based on skill / knowledge.
 
-![chance](/assets/images/castle_knightmare_flowchart.png "chance based outcome")
+![chance](/assets/images/chance_based_element.png "chance based outcome")
 
-![knowledge](/assets/images/castle_knightmare_flowchart.png "skill / knowledge based outcome")
+![knowledge](/assets/images/knowledge_element.png "skill / knowledge based outcome")
 
 ## Technologies Used
 
@@ -94,6 +94,11 @@ as of 25/04/22, due to an issue with Heroku and Github (a recent security attack
 
 ## Credits
 
-INCLUDE ANY TUTORIALS USED IN THIS FORMAT
+Stack Overflow for various queries and code errors, particularly this one for replacing a value in a dictionary:
+* [Python dictionary replace values](https://stackoverflow.com/questions/19773669/python-dictionary-replace-values)
 
-* NAME OF TUTORIAL: [YouTube Video](LINK TO VIDEO)
+The code institute slack community for helping inspire me to choose a text based adventure for this project.
+
+The code institute tutor support team for helping me solve the bug of my Heroku app not deploying properly.
+
+My mentor Rohit for helping me create a function to refactor my code.
