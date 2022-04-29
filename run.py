@@ -4,6 +4,8 @@ Modules imported for script
 import time
 import random
 
+# constant variable
+
 PLAYER_DATA = {
     "vitality": 20,
     "luck": 10
@@ -43,11 +45,12 @@ def check_vitality():
     It will show two warnings based on the players vitality
     and if vitality is reduced to 0 it will call game_over() function.
     """
-    if PLAYER_DATA["vitality"] >= 4 and PLAYER_DATA["vitality"] < 10:
+    if PLAYER_DATA["vitality"] >= 4 and PLAYER_DATA["vitality"] < 11:
         print_text("You hear Treguards voice")
-        print_text("'Careful adventurerer, your vitality level is low'")
+        print_text("'Careful adventurerer, your vitality level is low. Be careful!'")
     elif PLAYER_DATA["vitality"] >= 1 and PLAYER_DATA["vitality"] < 4:
-        print_text("Vitality level critical! Be careful!")
+        print_text("You hear Treguards voice")
+        print_text("'Vitality level critical! you are close to death!'")
     elif PLAYER_DATA["vitality"] < 1:
         game_over()
 
@@ -58,8 +61,13 @@ def game_over():
     prints a game over message then calls
     replay_game() function
     """
-    print_text("Ooh, nasty...")
+    print_text("You hear Treguards voice")
+    print_text("'Ooh, nasty...'")
+    print_text("'You have failed in your quest'")
+    print_text("'I guess I will have to find another adventurer'")
+    print_text("The Helm of Justice dematerialises from your head")
     print_text("You have lost all your vitality")
+    print_text("and died.")
     print_text("please try again")
     replay_game()
 
@@ -67,7 +75,8 @@ def game_over():
 def replay_game():
     """
     function is called if the player wins the game or if the game_over()
-    function is called. If the player selects (1), the game will call the main() function
+    function is called.
+    If the player selects (1), the game will call the main() function
     and restart. If the player selects (2), the script will stop running.
     """
     print_text("Would you like to play again?")
@@ -77,8 +86,8 @@ def replay_game():
     p_select = input("")
 
     while p_select != "1" and p_select != "2":
-        print("unrecognised input")
-        print("Please try again and select from the options given")
+        print("Unrecognised input.")
+        print("Please try again and select from the options given.")
         print_text("Would you like to play again?")
         print_text("(1) Yes")
         print_text("(2) No")
@@ -86,12 +95,12 @@ def replay_game():
         p_select = input("")
 
     if p_select == ("1"):
-        print_text("Great, lets dive back into castle Knightmare")
+        print_text("Great! Lets dive back into castle Knightmare!")
         main()
 
     elif p_select == ("2"):
-        print_text("You can always try another time adventurer")
-        print_text("closing game")
+        print_text("You can always try another time adventurer.")
+        print_text("Closing game.")
         exit()
 
 
@@ -104,10 +113,30 @@ def enter_castle():
     values from when the game was first run.
     """
     PLAYER_DATA.update({'vitality': 20, 'luck': 10})
-    print_text("You enter the castle and meet Treguard")
-    print_text("he gives you your quest...")
+    print_text("Welcome to castle Knightmare")
+    print_text("An homage to the classic children's TV show Knightmare.")
+    print_text("Before you stands a tall bearded man.")
+    print_text("He introduces himself as Treguard of Dunshelm.")
+    print_text("'Welcome adventurer! I am in need of aid!'")
+    print_text("'A curse has been placed on this castle")
+    print_text("by the duplicitous Mogdred the Dark Wizard.'")
+    print_text("'The only way to lift it is to")
+    print_text("retrieve the Sword of a Thousand Truths.'")
+    print_text("'You must brave the halls of castle Knightmare,")
+    print_text("find the sword, and draw it from its plinth.' ")
+    print_text("'But beware adventurer, this castle is now filled")
+    print_text("with ruthless beasts and devious traps.'")
+    print_text("'The only assistance I can give you is this dagger")
+    print_text("and the Helm of Justice. But this mighty helm")
+    print_text("will monitor your vitality level and allow you to hear me")
+    print_text("as you journey through the castle.'")
+    print_text("'Do not let your vitality level drop below zero or")
+    print_text("you will perish!'")
+    print_text("'Retrieve the sword and lift the curse!'")
+    print_text("'It is the only way to stop Mogdred!'")
     print_text("With that, you accept your quest and")
-    print_text("step through the shimmering portal...")
+    print_text("step through a shimmering portal")
+    print_text("into the depths of castle Knightmare!")
     print_text("Your vitality level is:")
     print(PLAYER_DATA["vitality"])
     main_hall()
