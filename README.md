@@ -13,6 +13,10 @@
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
+[Link to Heroku app](https://castle-knightmare.herokuapp.com/)
+
+[Link to Github Repo](https://github.com/george-downer40/text-adventure)
+
 ## Introduction
 
 I have chosen to create a Python based text-based adventure game for my porfolio project 3. It is largely inspired by traditional fantasy tropes such as Dungeons & Dragons, but also an old children's tv show called Knightmare [Wikipedia link](https://en.wikipedia.org/wiki/Knightmare). This show had a team of contestants guide another player through a series of rooms in a dungeon / castle, with the team having to describe the room and it's contents to the player. 
