@@ -342,11 +342,11 @@ def hall_fight_1():
 
 def hall_fight_2():
     """
-    Function operates in similar way to hall_fight_1
+    Function called at end of hall_fight_1() function.
     Player will encounter an enemy and the function uses
     the luck key from the PLAYER_DATA dictionary as well as a random
     integer to determine if they lose vitality.
-    mighty_sword() is called at end of function.
+    riddle_room() is called at end of function.
     """
     print_text("Huh?")
     print_text("You find yourself back in the hallway you just came through.")
@@ -380,7 +380,7 @@ def hall_fight_2():
 
 def cavern_fight():
     """
-    Function operates in similar way to hall_fight_1
+    Function called at end of bomb_trap() function.
     Player will encounter an enemy and the function uses
     the luck key from the PLAYER_DATA dictionary as well as a random
     integer to determine if they lose vitality.
@@ -422,8 +422,8 @@ def cavern_fight():
 
 def armoury_fight():
     """
-    Function operates in similar way to hall_fight_1().
-    Player will encounter an enemy and the function uses
+    Function called if player selects (2) in curiosity_trap()
+    function.Player will encounter an enemy and the function uses
     the luck key from the PLAYER_DATA dictionary as well as a random
     integer to determine if they lose vitality.
     ceiling_trap() is called at end of function.
@@ -520,7 +520,6 @@ def riddle_room():
         print_text("Your vitality level has been reduced to ")
         print(PLAYER_DATA["vitality"])
 
-
     elif p_select == "2":
         print_text("You answer 'fire'")
         print_text("The stone face smiles")
@@ -532,7 +531,6 @@ def riddle_room():
         vitality(10)
         print_text("Your vitality level has been raised to")
         print(PLAYER_DATA["vitality"])
-
 
     elif p_select == "3":
         print_text("You answer 'spirit'")
@@ -558,7 +556,11 @@ def riddle_room():
 
 def ceiling_trap():
     """
-    Function called after armoury_fight().
+    Function called after armoury_fight() function.
+    Depending on player selection, they will either lose
+    vitality or continue without taking damage.
+    Both selections lead to mighty_sword() function being
+    called.
     """
     print_text("You step through into long chamber,")
     print_text("the walls made of a dark, obsidian like glass.")
