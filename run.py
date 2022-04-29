@@ -344,7 +344,7 @@ def riddle_room():
     print_text("select (1), (2) or (3)")
     p_select = input("")
 
-    while p_select != "1" and p_select != "2":
+    while p_select != "1" and p_select != "2" and p_select != "3":
         print("unrecognised input")
         print("Please try again and select from the options given")
         print_text("what is your answer?")
@@ -383,7 +383,6 @@ def riddle_room():
         vitality(-10)
         check_vitality()
 
-    time.sleep(1)
     print_text("The stone face chuckles")
     print_text("'Well, I've had my fun with you, you best be on your way'")
     print_text("The stone face closes its eyes")
@@ -488,6 +487,109 @@ def ceiling_trap():
     """
     Function called after armoury_fight().
     """
+    print_text("You step through into long chamber,")
+    print_text("the walls made of a dark, obsidian like glass.")
+    print_text("There is only one way out, through a dark portal")
+    print_text("at the end of the chamber.")
+    print_text("scattered across the floor are what seem to be wooden poles")
+    print_text("of varying length. Many of them look split and splintered.")
+    print_text("As you start to make way to the portal,")
+    print_text("You notice scratches carved into the walls, all running")
+    print_text("vertically up to the ceiling.")
+    print_text("You hear a clicking and whirring sound, as if some")
+    print_text("machinery has started to operate.")
+    print_text("Over the clicking and whirring, you hear a grinding sound.")
+    print_text("You look up and are aghast to see the ceiling has started")
+    print_text("to descend. With the speed the ceiling is descending")
+    print_text("there is no way you'll reach the end of the chamber in time.")
+    print_text("With panic starting to set in you try to assess your options.")
+    print_text("Do you:")
+    print_text("(1) Grab one of the wooden poles and")
+    print_text("try to prop the ceiling up?")
+    print_text("(2) Lay flat on the floor and hope for the best?")
+    print_text("Select (1) or (2)")
+    p_select = input("")
+
+    while p_select != "1" and p_select != "2":
+        print("unrecognised input")
+        print("Please try again and select from the options given")
+        print_text("Do you:")
+        print_text("(1) Grab one of the wooden poles and")
+        print_text("try to prop the ceiling up?")
+        print_text("(2) Lay flat on the floor and hope for the best?")
+        print_text("Select (1) or (2)")
+        p_select = input("")
+    
+    if p_select == "1":
+        print_text("You grab the nearest wooden pole and try to")
+        print_text("wedge it between the ceiling and the floor.")
+        print_text("As the ceiling presses down onto the pole")
+        print_text("You can hear it creaking and start to splinter.")
+        chance = random.randint(8, 12)
+        if int(chance) > PLAYER_DATA["luck"]:
+            print_text("The ceiling bears down on the pole")
+            print_text("as the sound of the whirring machinery intensifies.")
+            print_text("Cracks start to run through the pole")
+            print_text("and pieces start to fly off it.")
+            print_text("You feel a sense of doom taking over you.")
+            print_text(".")
+            print_text("..")
+            print_text("...")
+            print_text("The pole splits...")
+            print_text("The ceiling, having been held up for a time")
+            print_text("descends at an alarming rate")
+            print_text("You don't even have time to think as the ceiling")
+            print_text("presses into you and continues until it reaches")
+            print_text("the floor...")
+            vitality(-100)
+            check_vitality()
+        else:
+            print_text("The ceiling bears down on the pole")
+            print_text("as the sound of the whirring machinery intensifies.")
+            print_text("Cracks start to run through the pole")
+            print_text("and pieces start to fly off it.")
+            print_text("You feel a sense of doom taking over you.")
+            print_text(".")
+            print_text("..")
+            print_text("...")
+            print_text("Suddenly, the sound of the machinery stops.")
+            print_text("The wooden pole is still holding,")
+            print_text("propped between the ceiling and the floor")
+            print_text("The sound of machinery starts again,")
+            print_text("But the ceiling is rising back up!")
+            print_text("You take a second to calm down,")
+            print_text("before making your way to the portal at the")
+            print_text("end of the chamber as quickly as possible!")
+            print_text("You don't know if the ceiling will start to")
+            print_text("descend again!")
+            print_text("You step through the portal into darkness.")
+            mighty_sword()
+    
+    elif p_select == "2":
+        print_text("You drop to the floor, trying to bring yourself")
+        print_text("as low to the floor as possible.")
+        print_text("You hear the sound of the machinery intensify")
+        print_text("and you can't bring yourself to look up.")
+        print_text("You know the ceiling is coming down.")
+        print_text("Was this a stupid mistake?")
+        print_text("You feel the ceiling now bearing down on you,")
+        print_text("the pressure building as well as the pain.")
+        vitality(-5)
+        check_vitality()
+        print_text("Your vitality is:")
+        print(PLAYER_DATA["vitality"])
+        print_text("By some miracle, the ceiling stops!")
+        print_text("After a few seconds it starts to rise back up,")
+        print_text("allowing you to stand up.")
+        print_text("You feel rather bruised after that close encounter,")
+        print_text("but you quickly make your way to portal at the end")
+        print_text("of the chamber.")
+        print_text("You step through the portal into darkness.")
+        mighty_sword()
+
+
+
+
 
 def print_text(text):
     """
@@ -500,7 +602,4 @@ def print_text(text):
  
 
 
-print_text("test")
-print_text("test 2")
-print_text("test 3")
-print_text("test 4")
+main()
