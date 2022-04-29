@@ -1,4 +1,4 @@
-# Adventure Game
+# Castle Knightmare
 
 - [Adventure Game](#adventure-game)
   * [ReadMe Contents](#readme-contents)
@@ -71,20 +71,25 @@ As the only code to be written for this project was in Python, the responsivenes
 
 ## Testing
 
+The script was run multiple times in the Gitpod workspace, with every combination of routes tried multiple times to ensure there were no errors or dead ends in the code. It was also tested to ensure the game balance was correct and the game is enjoyable.
+
 ### Bugs
+
 While writing the README document, I was unable to see a preview in Gitpod. This meant in order for me to check the layout of my README file, I had to commit each change, push that version, and view the README in the Adventure Game Github Repo.
 
+When I initially tried to deploy my app on Heroku I received a message saying Application Error. This was because Heroku wasn't recognising Node in the buildpack properly. I contacted Tutor Support and they identified that it was an issue with my procfile. I pasted in the version they sent to me into my workspace and this resolved the issue.
 
 ## Deployment
 
 as of 25/04/22, due to an issue with Heroku and Github (a recent security attack), Heroku have removed removed the ability to automatically login to Github from their site. This means that the method described in the Love Sandwiches project no longer works. You currently cannot deploy apps from the Heroku dashboard, nor will those apps automatically update/redeploy in the future. A workaround was provided in the Code Institute Slack Announcements channel. The current method is as follows:
 
-* ADD STEPS BEFORE SUCH AS CREATING NEW HEROKU ACCOUNT AND IF ANY DEPENDENCIES OR INSTALLS MADE, USING THE COMMAND 'PIP3 FREEEZE > REQUIREMENTS.TXT
+* create a profile on the Heroku website.
 * Run the command heroku login -i in the terminal in your Gitpod workspace and login when prompted. 
-* Run the command heroku create your_app_name_here to create a new app, replacing your_app_name_here with the name you want to give your  app. In this specific case the command heroku castle knightmare was used. 
+* Run the command heroku create your_app_name_here to create a new app, replacing your_app_name_here with the name you want to give your  app. In this specific case the command heroku castle-knightmare was used. 
 * This will create a new Heroku app and link it to your Gitpod terminal. You can then access the app via the Heroku dashboard and set up your config vars.
-* EXPLAIN ANY CONFIG VARS THAT WERE USED. IF NONE, DO NOT FORGET THE KEY: PORT / VALUE: 8000 CONFIG VAR
-* ANY OTHER STEPS?
+* The only config var needed for this deployment was key: PORT value: 8000
+* In the gitpod workspace terminal type git push heroku.main. This pushes all the relevant information to the Heroku site.
+* On the Heroku site, on the castle-knightmare app, click on the open app button. This will launch the app in a separate tab.
 
 
 ## Credits
