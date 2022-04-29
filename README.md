@@ -31,7 +31,15 @@ In order for me to creat the game and work out the correct paths, I created a fl
 
 ## Features
 
+The game uses a variable dictionary with 2 keys; vitality and luck. These are used throughout the game to determine outcomes in scenarios.
 
+![dictionary](/assets/images/castle_knightmare_flowchart.png "PLAYER_STATS dictionary")
+
+The game provides the user with choices to make them feel more involved in playing. Some of these affect chance based outcomes whereas others are based on skill / knowledge.
+
+![chance](/assets/images/castle_knightmare_flowchart.png "chance based outcome")
+
+![knowledge](/assets/images/castle_knightmare_flowchart.png "skill / knowledge based outcome")
 
 ## Technologies Used
 
