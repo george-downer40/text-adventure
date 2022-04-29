@@ -66,6 +66,7 @@ As the only code to be written for this project was in Python, the responsivenes
 
 
 ## Testing
+
 ### Bugs
 While writing the README document, I was unable to see a preview in Gitpod. This meant in order for me to check the layout of my README file, I had to commit each change, push that version, and view the README in the Adventure Game Github Repo.
 
