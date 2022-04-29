@@ -1,17 +1,20 @@
 # Castle Knightmare
 
-- [Adventure Game](#adventure-game)
-  * [ReadMe Contents](#readme-contents)
-    + [Introduction](#introduction)
-    + [Technologies Used](#technologies-used)
-    + [Features](#features)
-    + [Testing](#testing)
-      - [Bugs](#bugs) 
-      - [Restrictions](#restrictions)    
-    + [Deployment](#deployment)
-    + [Credits](#credits)
+- [Castle Knightmare](#castle-knightmare)
+  * [Introduction](#introduction)
+  * [User Stories](#user-stories)
+  * [Features](#features)
+  * [Technologies Used](#technologies-used)
+  * [Code Validation](#code-validation)
+    + [Restrictions](#restrictions)
+  * [Testing](#testing)
+    + [Bugs](#bugs)
+  * [Deployment](#deployment)
+  * [Credits](#credits)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 
 [Link to Heroku app](https://castle-knightmare.herokuapp.com/)
 
