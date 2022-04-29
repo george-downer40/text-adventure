@@ -139,10 +139,11 @@ def bomb_trap():
 
     if p_select == "1":
         print_text("you sprint for the door")
-        chance = random.randint(8, 12)
+        chance = random.randint(9, 12)
         if int(chance) > PLAYER_DATA["luck"]:
             print_text("You were caught in the blast")
-            vitality(-3)
+            vitality(-5)
+            check_vitality()
             print_text("Your vitality level has been reduced to")
             print(PLAYER_DATA["vitality"])
             print_text("You hear Treguard's voice inside the helm")
@@ -185,12 +186,13 @@ def hall_fight_1():
     print_text("Blocking your way is a menacing goblin")
     print_text("You have no choice but to fight it")
     print_text("You swing your sword at the goblin")
-    chance = random.randint(8, 12)
+    chance = random.randint(9, 12)
 
     if int(chance) > PLAYER_DATA["luck"]:
         print_text("You strike down the foul beast")
         print_text("but not before it hits you first")
-        vitality(-3)
+        vitality(-5)
+        check_vitality()
         print_text("Your vitality level has been reduced to")
         print(PLAYER_DATA["vitality"])
         print_text("You make your way to the next room")
@@ -267,12 +269,12 @@ def hall_fight_2():
     print_text("The goblin you slew has risen from the death")
     print_text("You have no choice but to fight it")
     print_text("You swing your sword at the undead goblin")
-    chance = random.randint(8, 12)
+    chance = random.randint(9, 12)
 
     if int(chance) > PLAYER_DATA["luck"]:
         print_text("You strike down the foul undead beast")
         print_text("but not before it hits you first")
-        vitality(-3)
+        vitality(-5)
         print_text("Your vitality level has been reduced to ")
         print(PLAYER_DATA["vitality"])
         print_text("You make your way to the next room")
@@ -295,12 +297,13 @@ def cavern_fight():
     print_text("In front of you is a skeleton")
     print_text("You have no choice but to fight it")
     print_text("You swing your sword at the skeleton")
-    chance = random.randint(8, 12)
+    chance = random.randint(9, 12)
 
     if int(chance) > PLAYER_DATA["luck"]:
         print_text("You strike down the skeleton")
         print_text("but not before it hits you first")
-        vitality(-3)
+        vitality(-5)
+        check_vitality()
         print_text("Your vitality level has been reduced to ")
         print(PLAYER_DATA["vitality"])
         print_text("You make your way to the next room")
@@ -371,7 +374,7 @@ def riddle_room():
         print_text("The stone face opens it's mouth wide and a vibrant green cloud pours out")
         print_text("It fills the room and you envelops you")
         print_text("You feel stronger, boosting your vitality")
-        vitality(5)
+        vitality(10)
     
     elif p_select == "3":
         print_text("You answer 'spirit'")
@@ -407,9 +410,10 @@ def mighty_sword():
     print_text("You feel your vitality draining from you")
 
     x = 0
-    while x < 10:
-        vitality(-1)
+    while x < 3:
+        vitality(-4)
         check_vitality()
+        print_text("Your vitality is:")
         print(PLAYER_DATA["vitality"])
         x = x + 1
 
@@ -467,12 +471,12 @@ def armoury_fight():
     print_text("In front of you is a ghostly knight")
     print_text("You have no choice but to fight it")
     print_text("You swing your sword at the knight")
-    chance = random.randint(8, 12)
+    chance = random.randint(9, 12)
 
     if int(chance) > PLAYER_DATA["luck"]:
         print_text("You strike down the foul apparition")
         print_text("but not before it hits you first")
-        vitality(-3)
+        vitality(-5)
         print_text("Your vitality level has been reduced to ")
         print(PLAYER_DATA["vitality"])
         print_text("You make your way to the next room")
