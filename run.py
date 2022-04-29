@@ -16,15 +16,6 @@ def vitality(vitality_level: int):
     PLAYER_DATA["vitality"] = PLAYER_DATA["vitality"] + (vitality_level)
 
 
-def luck(luck_level: int):
-    """
-    function allows player's luck to be altered during the game
-    1 paramater fed into the function: luck_level: int
-    this is used in the function itself
-    """
-    PLAYER_DATA["luck"] = PLAYER_DATA["luck"] + (luck_level)
-
-
 def check_vitality():
     """
     Function is called whenever player loses vitality.
@@ -278,11 +269,11 @@ def hall_fight_2():
         print_text("Your vitality level has been reduced to ")
         print(PLAYER_DATA["vitality"])
         print_text("You make your way to the next room")
-        mighty_sword()
+        riddle_room()
     else:
         print_text("you are unscathed")
         print_text("You make your way to the next room")
-        mighty_sword()
+        riddle_room()
 
 
 def cavern_fight():
