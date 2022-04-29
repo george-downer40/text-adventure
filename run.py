@@ -156,9 +156,9 @@ def main_hall():
     print_text("a stone door to your left,")
     print_text("and a metal door to your right.")
     print_text("Do you:")
-    print_text("(1) go through the wooden double doors in front of you?")
-    print_text("(2) take the stone door to your left?")
-    print_text("(3) take the metal door to your right?")
+    print_text("(1) Go through the wooden double doors in front of you?")
+    print_text("(2) Take the stone door to your left?")
+    print_text("(3) Take the metal door to your right?")
     print_text("select (1), (2) or (3)")
     p_select = input("")
 
@@ -166,19 +166,19 @@ def main_hall():
         print("unrecognised input")
         print("Please try again and select from the options given")
         print_text("Do you:")
-        print_text("(1) go through the wooden double doors in front of you?")
-        print_text("(2) take the stone door to your left?")
-        print_text("(3) take the metal door to your right?")
+        print_text("(1) Go through the wooden double doors in front of you?")
+        print_text("(2) Take the stone door to your left?")
+        print_text("(3) Take the metal door to your right?")
         p_select = input("")
 
     if p_select == "1":
-        print_text("you walk through the wooden double doors.")
+        print_text("You walk through the wooden double doors.")
         hall_fight_1()
     elif p_select == "2":
-        print_text("you walk through the stone door.")
+        print_text("You walk through the stone door.")
         curiosity_trap()
     elif p_select == "3":
-        print_text("you walk through the metal door.")
+        print_text("You walk through the metal door.")
         bomb_trap()
 
 
@@ -192,11 +192,11 @@ def bomb_trap():
     """
     print_text("You find yourself in a what seems to be a workshop,")
     print_text("with beaten copper panels lining the wall.")
-    print_text("There are crates of nuts and bolts strewn across the floor")
-    print_text("and a large wooden table a few paces in front of you")
-    print_text("It looks like there's a door on the other side of the workshop")
+    print_text("There are crates of nuts and bolts strewn across the floor,")
+    print_text("and a large wooden table a few paces in front of you.")
+    print_text("It looks like there's a door on the other side of the workshop.")
     print_text("A loud hissing noise emanates from the middle of the workshop...")
-    print_text("It's a large bomb! Its fuse is slowly burning down.")
+    print_text("It's a giant bomb! Its fuse is slowly burning down.")
     print_text("You don't have much time to act.")
     print_text("Do you...")
     print_text("(1) Run for the door")
@@ -214,25 +214,22 @@ def bomb_trap():
         p_select = input("")
 
     if p_select == "1":
-        print_text("you sprint for the door")
+        print_text("You sprint for the door!")
         chance = random.randint(9, 12)
         if int(chance) > PLAYER_DATA["luck"]:
-            print_text("You were caught in the blast")
+            print_text("You were caught in the blast!")
             vitality(-5)
             check_vitality()
             print_text("Your vitality level has been reduced to")
             print(PLAYER_DATA["vitality"])
-            print_text("You hear Treguard's voice inside the helm")
-            print_text("'Careful adventurer, death is a very real possibility'")
-            print_text("Your body aches, you can't take too much damage")
-            print_text("or you will surely perish")
-            print_text("You make your way to the door at the end of the workshop")
+            print_text("Feeling sore, you pick yourself up from the floor,")
+            print_text("make your way to the door at the end of the workshop")
             print_text("and through the door")
             cavern_fight()
         else:
             print_text("You managed to reach the door before it blew!")
-            print_text("Luck must be with you today")
-            print_text("You step through the door")
+            print_text("Luck must be with you today.")
+            print_text("You step through the door.")
             cavern_fight()
 
     elif p_select == "2":
