@@ -670,12 +670,15 @@ def mighty_sword():
     """
     print_text("You emerge from the darkness into a circular chamber.")
     print_text("dessicated corpses lay strewn across the floor.")
-    print_text("In t")
-    print_text("before you lies your prize")
-    print_text("You attempt to pull the sword fron the plinth")
+    print_text("In the middle of the chamber,")
+    print_text("embedded deep in a plinth of stone,")
+    print_text("lies the Sword of a Thousand Truths!")
+    print_text("This is what Treguard sent you for.")
+    print_text("You attempt to pull the sword from the plinth")
+    print_text("The sword moves slightly.")
     print_text("you feel the sword testing you,")
     print_text("are you worthy?")
-    print_text("You feel your vitality draining from you")
+    print_text("You feel your vitality draining from you.")
 
     drain = 0
     while drain < 3:
@@ -686,7 +689,17 @@ def mighty_sword():
         drain = drain + 1
 
     print_text("Finally, the sword pulls free from the plinth!")
-    print_text("You won!")
+    print_text("Exhausted, you hold the sword aloft.")
+    print_text("You hear Treguard's voice again.")
+    print_text("'Congratulations adventurer, you have completed the quest")
+    print_text("and retrieved the Sword of a Thousand Truths!'")
+    print_text("'The curse upon castle Knightmare can be lifted!'")
+    print_text("'Now we can go after Mordred the Dark Wizard!'")
+    print_text("'Will you join me, brave adventurer?...'")
+    print_text("'On another quest?...'")
+    time.sleep(3)
+    print_text("Congratulations! You successfully traversed castle Knightmare")
+    print_text("and succeeded in your quest!")
     replay_game()
 
 
