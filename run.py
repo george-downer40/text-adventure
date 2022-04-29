@@ -696,7 +696,7 @@ def mighty_sword():
     print_text("'Congratulations adventurer, you have completed the quest")
     print_text("and retrieved the Sword of a Thousand Truths!'")
     print_text("'The curse upon castle Knightmare can be lifted!'")
-    print_text("'Now we can go after Mordred the Dark Wizard!'")
+    print_text("'Now we can go after Mogdred the Dark Wizard!'")
     print_text("'Will you join me, brave adventurer?...'")
     print_text("'On another quest?...'")
     time.sleep(3)
