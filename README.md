@@ -44,6 +44,12 @@ The game provides the user with choices to make them feel more involved in playi
 ## Technologies Used
 
 * Ecotrust-Canada Markdown (update with link and explanation)
+* Python
+* Github
+* Gitpod
+* Heroku
+* Lucid Chart
+
 
 
 
