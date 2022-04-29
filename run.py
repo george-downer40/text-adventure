@@ -1,3 +1,6 @@
+"""
+Modules imported for script
+"""
 import time
 import random
 
@@ -5,6 +8,24 @@ PLAYER_DATA = {
     "vitality": 20,
     "luck": 10
 }
+
+
+def main():
+    """
+    function that starts the game in the script.
+    calls enter_castle() function to begin game.
+    """
+    enter_castle()
+
+
+def print_text(text):
+    """
+    function combines time.sleep and print statements.
+    Will delay by 1 second and then print the text.
+    Function is used to refactor and clean up code.
+    """
+    time.sleep(1)
+    print(text)
 
 
 def vitality(vitality_level: int):
@@ -41,6 +62,37 @@ def game_over():
     print_text("You have lost all your vitality")
     print_text("please try again")
     replay_game()
+
+
+def replay_game():
+    """
+    function is called if the player wins the game or if the game_over()
+    function is called. If the player selects (1), the game will call the main() function
+    and restart. If the player selects (2), the script will stop running.
+    """
+    print_text("Would you like to play again?")
+    print_text("(1) Yes")
+    print_text("(2) No")
+    print_text("Select (1) or (2)")
+    p_select = input("")
+
+    while p_select != "1" and p_select != "2":
+        print("unrecognised input")
+        print("Please try again and select from the options given")
+        print_text("Would you like to play again?")
+        print_text("(1) Yes")
+        print_text("(2) No")
+        print_text("Select (1) or (2)")
+        p_select = input("")
+
+    if p_select == ("1"):
+        print_text("Great, lets dive back into castle Knightmare")
+        main()
+
+    elif p_select == ("2"):
+        print_text("You can always try another time adventurer")
+        print_text("closing game")
+        exit()
 
 
 def enter_castle():
@@ -169,35 +221,6 @@ def bomb_trap():
         cavern_fight()
 
 
-def hall_fight_1():
-    """
-    function called if player selects (1) in main_hall()
-    function. Player will encounter an enemy and the function uses
-    the luck key from the PLAYER_DATA dictionary as well as a random
-    integer to determine if they lose vitality.
-    hall_fight_2() is called at end of function.
-    """
-    print_text("flavour text of room")
-    print_text("Blocking your way is a menacing goblin")
-    print_text("You have no choice but to fight it")
-    print_text("You swing your sword at the goblin")
-    chance = random.randint(9, 12)
-
-    if int(chance) > PLAYER_DATA["luck"]:
-        print_text("You strike down the foul beast")
-        print_text("but not before it hits you first")
-        vitality(-5)
-        check_vitality()
-        print_text("Your vitality level has been reduced to")
-        print(PLAYER_DATA["vitality"])
-        print_text("You make your way to the next room")
-        hall_fight_2()
-    else:
-        print_text("you are unscathed")
-        print_text("You make your way to the next room")
-        hall_fight_2()
-
-
 def curiosity_trap():
     """
     function provides player with 2 options. If player selects (1)
@@ -251,6 +274,35 @@ def curiosity_trap():
     elif p_select == "2":
         print_text("You push the stone door open and walk through")
         armoury_fight()
+
+
+def hall_fight_1():
+    """
+    function called if player selects (1) in main_hall()
+    function. Player will encounter an enemy and the function uses
+    the luck key from the PLAYER_DATA dictionary as well as a random
+    integer to determine if they lose vitality.
+    hall_fight_2() is called at end of function.
+    """
+    print_text("flavour text of room")
+    print_text("Blocking your way is a menacing goblin")
+    print_text("You have no choice but to fight it")
+    print_text("You swing your sword at the goblin")
+    chance = random.randint(9, 12)
+
+    if int(chance) > PLAYER_DATA["luck"]:
+        print_text("You strike down the foul beast")
+        print_text("but not before it hits you first")
+        vitality(-5)
+        check_vitality()
+        print_text("Your vitality level has been reduced to")
+        print(PLAYER_DATA["vitality"])
+        print_text("You make your way to the next room")
+        hall_fight_2()
+    else:
+        print_text("you are unscathed")
+        print_text("You make your way to the next room")
+        hall_fight_2()
 
 
 def hall_fight_2():
@@ -308,6 +360,34 @@ def cavern_fight():
         print_text("you are unscathed")
         print_text("You make your way to the next room")
         riddle_room()
+
+
+def armoury_fight():
+    """
+    Function operates in similar way to hall_fight_1().
+    Player will encounter an enemy and the function uses
+    the luck key from the PLAYER_DATA dictionary as well as a random
+    integer to determine if they lose vitality.
+    ceiling_trap() is called at end of function.
+    """
+    print_text("You step through into an armoury")
+    print_text("In front of you is a ghostly knight")
+    print_text("You have no choice but to fight it")
+    print_text("You swing your sword at the knight")
+    chance = random.randint(9, 12)
+
+    if int(chance) > PLAYER_DATA["luck"]:
+        print_text("You strike down the foul apparition")
+        print_text("but not before it hits you first")
+        vitality(-5)
+        print_text("Your vitality level has been reduced to ")
+        print(PLAYER_DATA["vitality"])
+        print_text("You make your way to the next room")
+        ceiling_trap()
+    else:
+        print_text("you are unscathed")
+        print_text("You make your way to the next room")
+        ceiling_trap()
 
 
 def riddle_room():
@@ -371,7 +451,7 @@ def riddle_room():
         print_text("It fills the room and you envelops you")
         print_text("You feel stronger, boosting your vitality")
         vitality(10)
-    
+
     elif p_select == "3":
         print_text("You answer 'spirit'")
         print_text("The stone face frowns")
@@ -388,101 +468,6 @@ def riddle_room():
     print_text("Its mouth opens even wider until it's large enough for you to pass through")
     print_text("You step through the mouth into darkness")
     mighty_sword()
-
-
-
-def mighty_sword():
-    """
-    function runs a while loop that reduces the player's vitality and
-    calls the check_vitality() function. If the player's vitality is not
-    reduced below 1, then the player wins and the replay_game() function
-    is called.
-    """
-    print_text("You find yourself in a circular room")
-    print_text("before you lies your prize")
-    print_text("You attempt to pull the sword fron the plinth")
-    print_text("you feel the sword testing you,")
-    print_text("are you worthy?")
-    print_text("You feel your vitality draining from you")
-
-    x = 0
-    while x < 3:
-        vitality(-4)
-        check_vitality()
-        print_text("Your vitality is:")
-        print(PLAYER_DATA["vitality"])
-        x = x + 1
-
-    print_text("Finally, the sword pulls free from the plinth!")
-    print_text("You won!")
-    replay_game()
-
-
-def replay_game():
-    """
-    function is called if the player wins the game or if the game_over()
-    function is called. If the player selects (1), the game will call the main() function
-    and restart. If the player selects (2), the script will stop running.
-    """
-    print_text("Would you like to play again?")
-    print_text("(1) Yes")
-    print_text("(2) No")
-    print_text("Select (1) or (2)")
-    p_select = input("")
-
-    while p_select != "1" and p_select != "2":
-        print("unrecognised input")
-        print("Please try again and select from the options given")
-        print_text("Would you like to play again?")
-        print_text("(1) Yes")
-        print_text("(2) No")
-        print_text("Select (1) or (2)")
-        p_select = input("")
-
-    if p_select == ("1"):
-        print_text("Great, lets dive back into castle Knightmare")
-        main()
-
-    elif p_select == ("2"):
-        print_text("You can always try another time adventurer")
-        print_text("closing game")
-        exit()
-
-
-def main():
-    """
-    function that starts the game in the script.
-    calls enter_castle() function to begin game.
-    """
-    enter_castle()
-
-
-def armoury_fight():
-    """
-    Function operates in similar way to hall_fight_1().
-    Player will encounter an enemy and the function uses
-    the luck key from the PLAYER_DATA dictionary as well as a random
-    integer to determine if they lose vitality.
-    ceiling_trap() is called at end of function.
-    """
-    print_text("You step through into an armoury")
-    print_text("In front of you is a ghostly knight")
-    print_text("You have no choice but to fight it")
-    print_text("You swing your sword at the knight")
-    chance = random.randint(9, 12)
-
-    if int(chance) > PLAYER_DATA["luck"]:
-        print_text("You strike down the foul apparition")
-        print_text("but not before it hits you first")
-        vitality(-5)
-        print_text("Your vitality level has been reduced to ")
-        print(PLAYER_DATA["vitality"])
-        print_text("You make your way to the next room")
-        ceiling_trap()
-    else:
-        print_text("you are unscathed")
-        print_text("You make your way to the next room")
-        ceiling_trap()
 
 
 def ceiling_trap():
@@ -521,7 +506,7 @@ def ceiling_trap():
         print_text("(2) Lay flat on the floor and hope for the best?")
         print_text("Select (1) or (2)")
         p_select = input("")
-    
+
     if p_select == "1":
         print_text("You grab the nearest wooden pole and try to")
         print_text("wedge it between the ceiling and the floor.")
@@ -566,7 +551,7 @@ def ceiling_trap():
             print_text("descend again!")
             print_text("You step through the portal into darkness.")
             mighty_sword()
-    
+
     elif p_select == "2":
         print_text("You drop to the floor, trying to bring yourself")
         print_text("as low to the floor as possible.")
@@ -590,18 +575,31 @@ def ceiling_trap():
         mighty_sword()
 
 
-
-
-
-def print_text(text):
+def mighty_sword():
     """
-    function combines time.sleep and print statements.
-    Will delay by 1 second and then print the text.
-    Function is used to refactor and clean up code.
+    function runs a while loop that reduces the player's vitality and
+    calls the check_vitality() function. If the player's vitality is not
+    reduced below 1, then the player wins and the replay_game() function
+    is called.
     """
-    time.sleep(1)
-    print(text)
- 
+    print_text("You find yourself in a circular room")
+    print_text("before you lies your prize")
+    print_text("You attempt to pull the sword fron the plinth")
+    print_text("you feel the sword testing you,")
+    print_text("are you worthy?")
+    print_text("You feel your vitality draining from you")
+
+    drain = 0
+    while drain < 3:
+        vitality(-4)
+        check_vitality()
+        print_text("Your vitality is:")
+        print(PLAYER_DATA["vitality"])
+        drain = drain + 1
+
+    print_text("Finally, the sword pulls free from the plinth!")
+    print_text("You won!")
+    replay_game()
 
 
 main()
