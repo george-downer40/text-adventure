@@ -26,7 +26,7 @@ I have chosen to create a Python based text-based adventure game for my porfolio
 
 This game will guide the player through a dungeon, in which they will encounter monsters, traps and a final scenario. There will be 2 stats used during the game; vitality and luck. The player will be able to raise and lower vitality through different scenarios encountered in the game. The game is won if they can pass obstacles in the dungeon and reach the final room. The game is lost if they run out of health, or fall victim to a trap.
 
-In order for me to creat the game and work out the correct paths, I created a flow chart using Lucid Chart. This helped me to work out what functions I needed, where player input would be needed and how to increase replayability.
+In order for me to creat2 the game and work out the correct paths, I created a flow chart using Lucid Chart. This helped me to work out what functions I needed, where player input would be needed and how to increase replayability.
 
 ![flow chart](/assets/images/castle_knightmare_flowchart.png "Lucid Chart flow chart")
 
