@@ -149,15 +149,16 @@ def main_hall():
     either hall_fight_1(), curiosity_trap() or bomb_trap()
     functions are called.
     """
-    print_text("You find yourself in a great hall with lots of flavour text.")
-    print_text("There appears to be three exits from this place;")
-    print_text("a large door at the end of the hall,")
-    print_text("a door to your left,")
-    print_text("and a door to your right.")
+    print_text("You find yourself in a great hall with many portraits")
+    print_text("of lords and ladies on the walls.")
+    print_text("There appears to be three exits from the hall;")
+    print_text("a large wooden set of double doors at the end of the hall,")
+    print_text("a stone door to your left,")
+    print_text("and a metal door to your right.")
     print_text("Do you:")
-    print_text("(1) go through the door in front of you?")
-    print_text("(2) take the door to your left?")
-    print_text("(3) take the door to your right?")
+    print_text("(1) go through the wooden double doors in front of you?")
+    print_text("(2) take the stone door to your left?")
+    print_text("(3) take the metal door to your right?")
     print_text("select (1), (2) or (3)")
     p_select = input("")
 
@@ -165,20 +166,19 @@ def main_hall():
         print("unrecognised input")
         print("Please try again and select from the options given")
         print_text("Do you:")
-        print_text("(1) go through the door in front of you?")
-        print_text("(2) take the door to your left?")
-        print_text("(3) take the door to your right?")
-        print_text("select (1), (2) or (3)")
+        print_text("(1) go through the wooden double doors in front of you?")
+        print_text("(2) take the stone door to your left?")
+        print_text("(3) take the metal door to your right?")
         p_select = input("")
 
     if p_select == "1":
-        print_text("you chose 1")
+        print_text("you walk through the wooden double doors.")
         hall_fight_1()
     elif p_select == "2":
-        print_text("you chose 2")
+        print_text("you walk through the stone door.")
         curiosity_trap()
     elif p_select == "3":
-        print_text("you chose 3")
+        print_text("you walk through the metal door.")
         bomb_trap()
 
 
