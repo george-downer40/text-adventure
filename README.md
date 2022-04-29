@@ -50,6 +50,16 @@ The game provides the user with choices to make them feel more involved in playi
 * Heroku
 * Lucid Chart
 
+## Code Validation
+
+The python script was run through the PEP8 online validator and no errors were raised.
+
+JShint, W3C validator and Jigsaw validator were not used as part of my code validation, as the relevant code from the Code Institute template was not changed and is not required for this project.
+
+### Restrictions
+
+As the only code to be written for this project was in Python, the responsiveness of the Heroku app may not be ideal on any devices other than desktops.
+
 
 
 
