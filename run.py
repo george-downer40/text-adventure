@@ -473,7 +473,7 @@ def riddle_room():
     and increases vitality by 5.
     mighty_sword() function is called at the end.
     """
-    print_text("You find ")
+    print_text("You find yourself in small square chamber.")
     print_text("The wall at the end of the chamber begins to crack")
     print_text("The wall is now a giant carved face made from bricks")
     print_text("The face lets out a large yawn, shaking the very room")
@@ -481,7 +481,8 @@ def riddle_room():
     print_text("The face starts talking, a booming voice:")
     print_text("'Ahhh, it's been so very long since I've had company'")
     print_text("'Why don't we play a little game?")
-    print_text("'If you can answer my riddle, then you can continue on your way'")
+    print_text("'If you can answer my riddle,")
+    print_text("then you can continue on your way'")
     print_text("'I may even grant you a boon, it's been so long'")
     print_text("'However, if you get it wrong, there will be consequences'")
     print_text("'Okay adventurer, riddle me this'")
@@ -510,35 +511,47 @@ def riddle_room():
         print_text("You answer 'earth'")
         print_text("The stone face frowns")
         print_text("'Incorrect!")
-        print_text("The stone face opens it's mouth wide and a billowing black cloud pours out")
+        print_text("The stone face opens it's mouth wide,")
+        print_text("and a billowing black cloud pours out")
         print_text("It fills the room and you start to choke")
         print_text("You feel your vitality draining from you")
         vitality(-10)
         check_vitality()
+        print_text("Your vitality level has been reduced to ")
+        print(PLAYER_DATA["vitality"])
+
 
     elif p_select == "2":
         print_text("You answer 'fire'")
         print_text("The stone face smiles")
         print_text("'Correct!")
-        print_text("The stone face opens it's mouth wide and a vibrant green cloud pours out")
+        print_text("The stone face opens it's mouth wide,")
+        print_text("and a vibrant green cloud pours out")
         print_text("It fills the room and you envelops you")
         print_text("You feel stronger, boosting your vitality")
         vitality(10)
+        print_text("Your vitality level has been raised to")
+        print(PLAYER_DATA["vitality"])
+
 
     elif p_select == "3":
         print_text("You answer 'spirit'")
         print_text("The stone face frowns")
         print_text("'Incorrect!")
-        print_text("The stone face opens it's mouth wide and a billowing black cloud pours out")
+        print_text("The stone face opens it's mouth wide,")
+        print_text("and a billowing black cloud pours out")
         print_text("It fills the room and you start to choke")
         print_text("You feel your vitality draining from you")
         vitality(-10)
         check_vitality()
+        print_text("Your vitality level has been reduced to ")
+        print(PLAYER_DATA["vitality"])
 
     print_text("The stone face chuckles")
     print_text("'Well, I've had my fun with you, you best be on your way'")
     print_text("The stone face closes its eyes")
-    print_text("Its mouth opens even wider until it's large enough for you to pass through")
+    print_text("Its mouth opens even wider until")
+    print_text("it's large enough for you to pass through")
     print_text("You step through the mouth into darkness")
     mighty_sword()
 
@@ -655,7 +668,9 @@ def mighty_sword():
     reduced below 1, then the player wins and the replay_game() function
     is called.
     """
-    print_text("You find yourself in a circular room")
+    print_text("You emerge from the darkness into a circular chamber.")
+    print_text("dessicated corpses lay strewn across the floor.")
+    print_text("In t")
     print_text("before you lies your prize")
     print_text("You attempt to pull the sword fron the plinth")
     print_text("you feel the sword testing you,")
