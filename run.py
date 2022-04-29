@@ -387,24 +387,36 @@ def cavern_fight():
     riddle_room() is called at end of function.
     """
     print_text("You step through into a large cavern.")
-    
-    print_text("In front of you is a skeleton")
-    print_text("You have no choice but to fight it")
-    print_text("You swing your sword at the skeleton")
-    chance = random.randint(9, 12)
+    print_text("It smells of damp and an opressive gloom hangs")
+    print_text("in the air.")
+    print_text("You see a glowing light at the end of the cavern.")
+    print_text("A unusually large skeleton is pacing around the cavern.")
+    print_text("You try to sneak past but it must be able to")
+    print_text("sense your presence.")
+    print_text("It emits a strangled scream and runs at you!")
+    print_text("You grip your dagger tight and hope for the best.")
+    print_text("It leaps at you!")
+    chance = random.randint(10, 12)
 
     if int(chance) > PLAYER_DATA["luck"]:
-        print_text("You strike down the skeleton")
-        print_text("but not before it hits you first")
+        print_text("The skeleton crashes into you,")
+        print_text("throwing you to the ground!")
+        print_text("It falls apart into a heap of bones,")
+        print_text("but its massive skull hits you square in the chest.")
         vitality(-5)
         check_vitality()
-        print_text("Your vitality level has been reduced to ")
+        print_text("Your vitality level has been reduced to")
         print(PLAYER_DATA["vitality"])
-        print_text("You make your way to the next room")
+        print_text("You brush yourself off, make your way to the light")
+        print_text("and step through.")
         riddle_room()
     else:
-        print_text("you are unscathed")
-        print_text("You make your way to the next room")
+        print_text("The skeleton crashes into you,")
+        print_text("throwing you to the ground!")
+        print_text("It falls apart into a heap of bones.")
+        print_text("You had a lucky escape there!")
+        print_text("You brush yourself off, make your way to the light")
+        print_text("and step through.")
         riddle_room()
 
 
@@ -416,7 +428,11 @@ def armoury_fight():
     integer to determine if they lose vitality.
     ceiling_trap() is called at end of function.
     """
-    print_text("You step through into an armoury")
+    print_text("You step through into what seems to be an armoury.")
+    print_text("Various weapons line the walls")
+    print_text("and suits of armour stand silently.")
+    print_text("As you start to walk forward, one of the suits of armour comes to life!")
+    print_text("text")
     print_text("In front of you is a ghostly knight")
     print_text("You have no choice but to fight it")
     print_text("You swing your sword at the knight")
