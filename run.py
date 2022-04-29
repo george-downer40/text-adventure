@@ -83,7 +83,7 @@ def replay_game():
     print_text("(1) Yes")
     print_text("(2) No")
     print_text("Select (1) or (2)")
-    p_select = input("")
+    p_select = input("\n")
 
     while p_select != "1" and p_select != "2":
         print("Unrecognised input.")
@@ -92,7 +92,7 @@ def replay_game():
         print_text("(1) Yes")
         print_text("(2) No")
         print_text("Select (1) or (2)")
-        p_select = input("")
+        p_select = input("\n")
 
     if p_select == ("1"):
         print_text("Great! Lets dive back into castle Knightmare!")
@@ -160,7 +160,7 @@ def main_hall():
     print_text("(2) Take the stone door to your left?")
     print_text("(3) Take the metal door to your right?")
     print_text("select (1), (2) or (3)")
-    p_select = input("")
+    p_select = input("\n")
 
     while p_select != "1" and p_select != "2" and p_select != "3":
         print("unrecognised input")
@@ -169,7 +169,7 @@ def main_hall():
         print_text("(1) Go through the wooden double doors in front of you?")
         print_text("(2) Take the stone door to your left?")
         print_text("(3) Take the metal door to your right?")
-        p_select = input("")
+        p_select = input("\n")
 
     if p_select == "1":
         print_text("You walk through the wooden double doors.")
@@ -202,7 +202,7 @@ def bomb_trap():
     print_text("(1) Run for the door")
     print_text("(2) Take shelter using the table?")
     print_text("Select (1) or (2)")
-    p_select = input("")
+    p_select = input("\n")
 
     while p_select != "1" and p_select != "2":
         print("unrecognised input")
@@ -211,7 +211,7 @@ def bomb_trap():
         print_text("(1) Run for the door")
         print_text("(2) Take shelter using the table?")
         print_text("Select (1) or (2)")
-        p_select = input("")
+        p_select = input("\n")
 
     if p_select == "1":
         print_text("You sprint for the door!")
@@ -268,7 +268,7 @@ def curiosity_trap():
     print_text("(1) the ornate gold door?")
     print_text("(2) the weathered stone door?")
     print_text("Select (1) or (2)")
-    p_select = input("")
+    p_select = input("\n")
 
     while p_select != "1" and p_select != "2":
         print("unrecognised input")
@@ -277,7 +277,7 @@ def curiosity_trap():
         print_text("(1) the ornate gold door?")
         print_text("(2) the weathered stone door?")
         print_text("Select (1) or (2)")
-        p_select = input("")
+        p_select = input("\n")
 
     if p_select == "1":
         print_text("You try to push the ornate door open")
@@ -495,7 +495,7 @@ def riddle_room():
     print_text("(2) Fire")
     print_text("(3) Spirit")
     print_text("select (1), (2) or (3)")
-    p_select = input("")
+    p_select = input("\n")
 
     while p_select != "1" and p_select != "2" and p_select != "3":
         print("unrecognised input")
@@ -505,7 +505,7 @@ def riddle_room():
         print_text("(2) Fire")
         print_text("(3) Spirit")
         print_text("select (1), (2) or (3)")
-        p_select = input("")
+        p_select = input("\n")
 
     if p_select == "1":
         print_text("You answer 'earth'")
@@ -583,7 +583,7 @@ def ceiling_trap():
     print_text("try to prop the ceiling up?")
     print_text("(2) Lay flat on the floor and hope for the best?")
     print_text("Select (1) or (2)")
-    p_select = input("")
+    p_select = input("\n")
 
     while p_select != "1" and p_select != "2":
         print("unrecognised input")
@@ -593,7 +593,7 @@ def ceiling_trap():
         print_text("try to prop the ceiling up?")
         print_text("(2) Lay flat on the floor and hope for the best?")
         print_text("Select (1) or (2)")
-        p_select = input("")
+        p_select = input("\n")
 
     if p_select == "1":
         print_text("You grab the nearest wooden pole and try to")

@@ -3,11 +3,11 @@
 - [Adventure Game](#adventure-game)
   * [ReadMe Contents](#readme-contents)
     + [Introduction](#introduction)
-    + [UX](#ux)
     + [Technologies Used](#technologies-used)
     + [Features](#features)
     + [Testing](#testing)
-      - [Bugs](#bugs)     
+      - [Bugs](#bugs) 
+      - [Restrictions](#restrictions)    
     + [Deployment](#deployment)
     + [Credits](#credits)
 
