@@ -47,7 +47,7 @@ def check_vitality():
     """
     if PLAYER_DATA["vitality"] >= 4 and PLAYER_DATA["vitality"] < 11:
         print_text("You hear Treguards voice")
-        print_text("'Careful adventurerer, your vitality level is low. Be careful!'")
+        print_text("'Adventurer! your vitality level is low. Be careful!'")
     elif PLAYER_DATA["vitality"] >= 1 and PLAYER_DATA["vitality"] < 4:
         print_text("You hear Treguards voice")
         print_text("'Vitality level critical! you are close to death!'")
@@ -194,8 +194,8 @@ def bomb_trap():
     print_text("with beaten copper panels lining the wall.")
     print_text("There are crates of nuts and bolts strewn across the floor,")
     print_text("and a large wooden table a few paces in front of you.")
-    print_text("It looks like there's a door on the other side of the workshop.")
-    print_text("A loud hissing noise emanates from the middle of the workshop...")
+    print_text("You see a door on the other side of the workshop.")
+    print_text("A loud hissing noise emanates from the middle of the workshop")
     print_text("It's a giant bomb! Its fuse is slowly burning down.")
     print_text("You don't have much time to act.")
     print_text("Do you...")
@@ -254,10 +254,11 @@ def curiosity_trap():
     which calls the check_vital() function and guarantees a game over.
     If player selects (2), the armoury_fight() function is called.
     """
-    print_text("flavour text of room. Mention classical gold statues and pillars")
-    print_text("An insciption is marked on the largest pillar.")
+    print_text("The room is filled with golden statues and marble pillars")
+    print_text("An inscription is marked on the largest pillar.")
     print_text("It reads:")
     print_text("UTI INTERPRES LATINE")
+    print_text("What does that mean?")
     print_text("There are two doors to choose from:")
     print_text("An ornate door with gold filigree in front of you")
     print_text("and gold letters reading 'omne quod nitet non est aurum'")
@@ -310,24 +311,32 @@ def hall_fight_1():
     integer to determine if they lose vitality.
     hall_fight_2() is called at end of function.
     """
-    print_text("flavour text of room")
-    print_text("Blocking your way is a menacing goblin")
-    print_text("You have no choice but to fight it")
-    print_text("You swing your sword at the goblin")
+    print_text("The double doors you entered through slam shut behind you.")
+    print_text("Blocking your way is a mean looking goblin.")
+    print_text("The hallway is too narrow to run past it.")
+    print_text("You have no choice but to fight it.")
+    print_text("You stab your dagger at the goblin.")
     chance = random.randint(9, 12)
 
     if int(chance) > PLAYER_DATA["luck"]:
-        print_text("You strike down the foul beast")
-        print_text("but not before it hits you first")
+        print_text("You tussle with the goblin and manage to")
+        print_text("defeat the foul beast")
+        print_text("but it managed to get a few hits on you.")
         vitality(-5)
         check_vitality()
         print_text("Your vitality level has been reduced to")
         print(PLAYER_DATA["vitality"])
-        print_text("You make your way to the next room")
+        print_text("You step over the goblin's corpse and")
+        print_text("make your way down the hallway")
+        print_text("and through the door at the end.")
         hall_fight_2()
     else:
-        print_text("you are unscathed")
-        print_text("You make your way to the next room")
+        print_text("You tussle with the goblin and manage to")
+        print_text("defeat the foul beast!")
+        print_text("somehow, you are unscathed from the fight.")
+        print_text("You step over the goblin's corpse and")
+        print_text("make your way down the hallway")
+        print_text("and through the door at the end.")
         hall_fight_2()
 
 
@@ -339,23 +348,33 @@ def hall_fight_2():
     integer to determine if they lose vitality.
     mighty_sword() is called at end of function.
     """
-    print_text("flavour text of room. Are you back in the same room?")
-    print_text("The goblin you slew has risen from the death")
-    print_text("You have no choice but to fight it")
-    print_text("You swing your sword at the undead goblin")
-    chance = random.randint(9, 12)
+    print_text("Huh?")
+    print_text("You find yourself back in the hallway you just came through.")
+    print_text("The corpse of the goblin you slew is still on the ground")
+    print_text("As you make your way back through the hallway,")
+    print_text("black smoke starts to rise from the corpse.")
+    print_text("The goblin corpse starts to get back to its feet!")
+    print_text("You have no choice but to fight it again.")
+    print_text("You stab at the undead goblin")
+    chance = random.randint(10, 11)
 
     if int(chance) > PLAYER_DATA["luck"]:
-        print_text("You strike down the foul undead beast")
-        print_text("but not before it hits you first")
+        print_text("You plunge your dagger through the undead beast")
+        print_text("but it manages to bite you before it collapes again.")
         vitality(-5)
+        check_vitality()
         print_text("Your vitality level has been reduced to ")
         print(PLAYER_DATA["vitality"])
-        print_text("You make your way to the next room")
+        print_text("You give the body a kick to make sure it's actually dead.")
+        print_text("It doesn't move, so you try the door again")
+        print_text("and make your way through")
         riddle_room()
     else:
-        print_text("you are unscathed")
-        print_text("You make your way to the next room")
+        print_text("You plunge your dagger through the undead beast")
+        print_text("It collapses in a heap.")
+        print_text("You give the body a kick to make sure it's actually dead.")
+        print_text("It doesn't move, so you try the door again")
+        print_text("and make your way through")
         riddle_room()
 
 
@@ -367,7 +386,8 @@ def cavern_fight():
     integer to determine if they lose vitality.
     riddle_room() is called at end of function.
     """
-    print_text("You step through into a large cavern")
+    print_text("You step through into a large cavern.")
+    
     print_text("In front of you is a skeleton")
     print_text("You have no choice but to fight it")
     print_text("You swing your sword at the skeleton")
